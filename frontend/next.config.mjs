@@ -8,8 +8,8 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/frontend',       // Updated to reflect your new folder name
-  assetPrefix: '/frontend',    // Updated as well
+  basePath: '/personal-website',
+  assetPrefix: '/personal-website',
   eslint: {
     ignoreDuringBuilds: true,
   },
