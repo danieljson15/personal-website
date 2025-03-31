@@ -19,15 +19,14 @@ jobs:
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-        working-directory: ./personal-website
+        working-directory: personal-website
 
       - name: Build project (creates /out)
         run: npm run build
-        working-directory: ./personal-website
+        working-directory: personal-website
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
-          folder: out
-        working-directory: ./personal-website
+          folder: personal-website/out
