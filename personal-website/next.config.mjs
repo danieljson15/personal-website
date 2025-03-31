@@ -8,6 +8,8 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  basePath: '/personal-website',       // <== Add this line
+  assetPrefix: '/personal-website',      // <== And this line
   eslint: {
     ignoreDuringBuilds: true,
   },
