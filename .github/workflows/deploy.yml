@@ -18,12 +18,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+        working-directory: ./personal-website
 
       - name: Build
         run: npm run build
+        working-directory: ./personal-website
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: out
+          folder: personal-website/out
           branch: gh-pages
