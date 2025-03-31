@@ -8,8 +8,9 @@ try {
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/frontend',       // Updated to reflect your new folder name
-  assetPrefix: '/frontend',    // Updated as well
+  // Remove these so that asset URLs are relative to the domain root:
+  // basePath: '/frontend',
+  // assetPrefix: '/frontend',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -29,19 +30,10 @@ const nextConfig = {
 mergeConfig(nextConfig, userConfig)
 
 function mergeConfig(nextConfig, userConfig) {
-  if (!userConfig) {
-    return
-  }
-
+  if (!userConfig) return
   for (const key in userConfig) {
-    if (
-      typeof nextConfig[key] === 'object' &&
-      !Array.isArray(nextConfig[key])
-    ) {
-      nextConfig[key] = {
-        ...nextConfig[key],
-        ...userConfig[key],
-      }
+    if (typeof nextConfig[key] === 'object' && !Array.isArray(nextConfig[key])) {
+      nextConfig[key] = { ...nextConfig[key], ...userConfig[key] }
     } else {
       nextConfig[key] = userConfig[key]
     }
