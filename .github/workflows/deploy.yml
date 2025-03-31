@@ -7,8 +7,9 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout repo
         uses: actions/checkout@v3
 
       - name: Setup Node.js
@@ -20,12 +21,13 @@ jobs:
         run: npm install --legacy-peer-deps
         working-directory: ./personal-website
 
-      - name: Build
+      - name: Build project (creates /out)
         run: npm run build
         working-directory: ./personal-website
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: personal-website/out
           branch: gh-pages
+          folder: out
+        working-directory: ./personal-website
