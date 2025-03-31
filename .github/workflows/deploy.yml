@@ -19,15 +19,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
-        working-directory: personal-website
+        working-directory: frontend
 
       - name: Build project (creates /out)
         run: npm run build
-        working-directory: personal-website
+        working-directory: frontend
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
-          folder: personal-website/out
+          folder: frontend/out
