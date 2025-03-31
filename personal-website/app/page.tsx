@@ -10,7 +10,7 @@ export default function Home() {
       <AnimatedBackground />
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center">
         <h1 className="animate-fade-in text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-          <span className="block gradient-text">John Doe</span>
+          <span className="block gradient-text">Daniel Son</span>
           <span className="mt-2 block text-muted-foreground text-2xl sm:text-3xl md:text-4xl">Software Developer</span>
         </h1>
         <p className="mt-6 max-w-md text-base text-muted-foreground md:text-lg">
