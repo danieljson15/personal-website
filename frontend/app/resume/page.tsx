@@ -1,17 +1,17 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
-import { AnimatedBackground } from "@/components/animated-background"
+import { GlowingOrbBackground } from "@/components/glowing-orb-background"
 import { TypingEffect } from "@/components/typing-effect"
 
 export default function ResumePage() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      <AnimatedBackground />
+      <GlowingOrbBackground />
       <div className="container relative z-10 py-24 md:py-32">
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <div>
+            <div className="text-container p-4">
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
                 <TypingEffect text="Resume" speed={100} hideCursorAfter={500} />
               </h1>
@@ -40,7 +40,7 @@ export default function ResumePage() {
             style={{ animationDelay: "2s", animationFillMode: "forwards" }}
           >
             {/* Education Section */}
-            <Card className="border border-border bg-card/50 backdrop-blur-sm">
+            <Card className="border border-border bg-card/70 backdrop-blur-md">
               <CardHeader>
                 <CardTitle className="text-xl">Education</CardTitle>
               </CardHeader>
@@ -59,7 +59,7 @@ export default function ResumePage() {
             </Card>
 
             {/* Experience Section */}
-            <Card className="border border-border bg-card/50 backdrop-blur-sm">
+            <Card className="border border-border bg-card/70 backdrop-blur-md">
               <CardHeader>
                 <CardTitle className="text-xl">Experience</CardTitle>
               </CardHeader>
@@ -93,7 +93,7 @@ export default function ResumePage() {
             </Card>
 
             {/* Skills Section */}
-            <Card className="border border-border bg-card/50 backdrop-blur-sm">
+            <Card className="border border-border bg-card/70 backdrop-blur-md">
               <CardHeader>
                 <CardTitle className="text-xl">Skills</CardTitle>
               </CardHeader>

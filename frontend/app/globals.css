@@ -56,6 +56,73 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Dark theme background */
+  .dark body {
+    background-color: #000;
+  }
+
+  /* Improved text readability with stronger shadows */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); /* Much lighter shadow for light mode */
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7), 0 0 5px rgba(0, 0, 0, 0.4); /* Keep dark mode as is */
+  }
+
+  p,
+  span,
+  a,
+  li,
+  label {
+    text-shadow: none; /* Remove shadows completely for body text in light mode */
+  }
+
+  .dark p,
+  .dark span,
+  .dark a,
+  .dark li,
+  .dark label {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6), 0 0 3px rgba(0, 0, 0, 0.3); /* Keep dark mode as is */
+  }
+
+  /* Text container with slightly stronger background for better readability */
+  .text-container {
+    position: relative;
+  }
+
+  .text-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.5); /* More opaque background in light mode */
+    backdrop-filter: blur(4px);
+    border-radius: 0.5rem;
+    z-index: -1;
+  }
+
+  .dark .text-container::before {
+    background-color: rgba(0, 0, 0, 0.4); /* Keep dark mode as is */
+  }
+}
+
+/* Mobile menu styles */
+.mobile-menu {
+  background-color: hsl(var(--background));
+  position: fixed;
+  inset: 0;
+  z-index: 50;
 }
 
 .animate-fade-in {
@@ -72,17 +139,19 @@
 }
 
 .gradient-text {
-  background: linear-gradient(to right, #000, #444, #000);
+  background: linear-gradient(to right, #000, #333, #000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% 200%;
   animation: gradient-shift 15s ease infinite;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
 .dark .gradient-text {
-  background: linear-gradient(to right, #fff, #aaa, #fff);
+  background: linear-gradient(to right, #fff, #ddd, #fff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 @keyframes blink {
