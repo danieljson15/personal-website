@@ -1,13 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
-import { GlowingOrbBackground } from "@/components/glowing-orb-background"
+import { EnhancedBackground } from "@/components/enhanced-background"
 import { TypingEffect } from "@/components/typing-effect"
 
 export default function ResumePage() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      <GlowingOrbBackground />
+      <EnhancedBackground />
       <div className="container relative z-10 py-24 md:py-32">
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">

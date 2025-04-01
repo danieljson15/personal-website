@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
-import { GlowingOrbBackground } from "@/components/glowing-orb-background"
+import { EnhancedBackground } from "@/components/enhanced-background"
 import { TypingEffect } from "@/components/typing-effect"
 
 export default function ProjectsPage() {
@@ -35,7 +35,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      <GlowingOrbBackground />
+      <EnhancedBackground />
       <div className="container relative z-10 py-24 md:py-32">
         <div className="mx-auto max-w-5xl space-y-8">
           <div className="space-y-4 text-center">

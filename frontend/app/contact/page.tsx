@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from "@/components/ui/button"
 import { Github, Linkedin, Mail, MapPin } from "lucide-react"
-import { GlowingOrbBackground } from "@/components/glowing-orb-background"
+import { EnhancedBackground } from "@/components/enhanced-background"
 import { TypingEffect } from "@/components/typing-effect"
 
 export default function ContactPage() {
@@ -42,7 +42,7 @@ export default function ContactPage() {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      <GlowingOrbBackground />
+      <EnhancedBackground />
       <div className="container relative z-10 py-24 md:py-32">
         <div className="mx-auto max-w-5xl space-y-8">
           <div className="space-y-4 text-center">

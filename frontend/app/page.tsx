@@ -2,13 +2,13 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
-import { GlowingOrbBackground } from "@/components/glowing-orb-background"
+import { EnhancedBackground } from "@/components/enhanced-background"
 import { TypingEffect } from "@/components/typing-effect"
 
 export default function Home() {
   return (
     <div className="relative min-h-screen w-full overflow-hidden">
-      <GlowingOrbBackground />
+      <EnhancedBackground />
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center">
         <div className="text-container p-6">
           <h1 className="animate-fade-in text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
