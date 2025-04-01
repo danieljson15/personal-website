@@ -10,7 +10,7 @@ export default function Home() {
     <div className="relative min-h-screen w-full overflow-hidden">
       <EnhancedBackground />
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center">
-        <div className="text-container p-6">
+        <div className="text-container p-6 text-center">
           <h1 className="animate-fade-in text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             <span className="block gradient-text">
               <TypingEffect text="Daniel Son" speed={100} hideCursorAfter={500} />
@@ -20,10 +20,10 @@ export default function Home() {
             </span>
           </h1>
           <p
-            className="mt-6 max-w-md text-base text-muted-foreground md:text-lg opacity-0 animate-fade-in"
+            className="mt-6 mx-auto max-w-md text-base text-muted-foreground md:text-lg opacity-0 animate-fade-in"
             style={{ animationDelay: "3s", animationFillMode: "forwards" }}
           >
-            First-year student at the University of Virginia planning to double major in Computer Science and Data Science. Interested in Al/ML, research, and computational social sciences.
+            First-year student at the University of Virginia planning to double major in Computer Science and Data Science. Interested in AI/ML, research, and computational social sciences.
           </p>
           <div
             className="mt-10 flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in justify-center"
@@ -43,4 +43,3 @@ export default function Home() {
     </div>
   )
 }
-

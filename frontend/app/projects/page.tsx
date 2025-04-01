@@ -23,7 +23,7 @@ export default function ProjectsPage() {
         "Porcupine",
       ],
       githubUrl: "https://github.com/JouBarzdukas/hoo-needs-hands",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/personal-website/projects/jarvis.png",
     },
     {
       title: "@everyone",
@@ -41,7 +41,7 @@ export default function ProjectsPage() {
         "Transformers",
       ],
       githubUrl: "https://github.com/pradeepravi26/at-everyone",
-      image: "/placeholder.svg?height=400&width=600",
+      image: "/personal-website/projects/@everyone.png",
     },
   ]
 

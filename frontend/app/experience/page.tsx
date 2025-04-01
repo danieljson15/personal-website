@@ -106,13 +106,13 @@ export default function ResumePage() {
                   <p className="text-muted-foreground">The Force for Health Network, Remote</p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
                     <li>
-                      Reported 10+ AI vulnerabilities in chatbot features for jailbreak risks and misinformation
+                      Reported AI vulnerabilities in chatbot features for jailbreak risks and misinformation
                     </li>
                     <li>
                       Collaborated with platform architects to address 30+ critical bugs and suggest actionable UI/UX improvements
                     </li>
                     <li>
-                      Optimized SEO for 50+ web pages using Yoast SEO
+                      Optimized SEO for web pages using Yoast SEO
                     </li>
                   </ul>
                 </div>
