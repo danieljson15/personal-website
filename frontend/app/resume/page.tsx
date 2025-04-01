@@ -10,31 +10,27 @@ export default function ResumePage() {
       <EnhancedBackground />
       <div className="container relative z-10 py-24 md:py-32">
         <div className="mx-auto max-w-4xl space-y-8">
+          {/* Header Section */}
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <div className="text-container p-4">
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                <TypingEffect text="Resume" speed={100} hideCursorAfter={500} />
-              </h1>
-              <p
-                className="mt-2 text-muted-foreground md:text-lg opacity-0 animate-fade-in"
-                style={{ animationDelay: "1s", animationFillMode: "forwards" }}
-              >
-                My professional experience and skills
-              </p>
-            </div>
-            <div
-              className="opacity-0 animate-fade-in"
-              style={{ animationDelay: "1.5s", animationFillMode: "forwards" }}
-            >
-              <Button asChild variant="outline" className="border-2">
-                <a href="#" download>
-                  <Download className="mr-2 h-4 w-4" />
-                  Download PDF
-                </a>
-              </Button>
-            </div>
-          </div>
+  <div className="text-container p-4">
+    <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+      <TypingEffect text="Experience" speed={100} hideCursorAfter={500} />
+    </h1>
+    <p
+      className="mt-2 text-muted-foreground md:text-lg opacity-0 animate-fade-in"
+      style={{ animationDelay: "1s", animationFillMode: "forwards" }}
+    >
+      <TypingEffect
+                  text="My educational background, working/research experience, and skills."
+                  speed={50}
+                  delay={1000}
+                  hideCursorAfter={500}
+                />
+    </p>
+  </div>
+</div>
 
+          {/* Main Content */}
           <div
             className="space-y-8 opacity-0 animate-fade-in"
             style={{ animationDelay: "2s", animationFillMode: "forwards" }}
@@ -47,83 +43,153 @@ export default function ResumePage() {
               <CardContent className="space-y-6">
                 <div>
                   <div className="flex flex-col justify-between gap-1 sm:flex-row">
-                    <h3 className="font-semibold">Bachelor of Science in Computer Science</h3>
-                    <span className="text-sm text-muted-foreground">2018 - 2022</span>
+                    <h3 className="font-semibold">University of Virginia</h3>
+                    <span className="text-sm text-muted-foreground">Aug. 2024 – May 2028</span>
                   </div>
-                  <p className="text-muted-foreground">University of Technology</p>
+                  <p className="text-muted-foreground">Charlottesville, VA</p>
                   <p className="mt-2 text-sm">
-                    Graduated with honors. Specialized in web development and artificial intelligence.
+                    Bachelor of Arts in Computer Science &amp; Bachelor of Science in Data Science • GPA: 4.0
+                  </p>
+                  <p className="mt-2 text-sm">
+                    Coursework: Data Structures &amp; Algorithms, Discrete Mathematics, Multivariable Calculus, Linear Algebra, Computer Systems, Data Science Foundations, Microeconomics.
+                    <br />
+                    Activities: Korean Student Association (Undergraduate Rep.), Business and AI Institute, ML @ UVA.
                   </p>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Experience Section */}
+            {/* Experience and Research Section */}
             <Card className="border border-border bg-card/70 backdrop-blur-md">
               <CardHeader>
-                <CardTitle className="text-xl">Experience</CardTitle>
+                <CardTitle className="text-xl">Experience and Research</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
+                {/* Computational Physics Researcher */}
                 <div>
                   <div className="flex flex-col justify-between gap-1 sm:flex-row">
-                    <h3 className="font-semibold">Senior Frontend Developer</h3>
-                    <span className="text-sm text-muted-foreground">2022 - Present</span>
+                    <h3 className="font-semibold">Computational Physics Researcher</h3>
+                    <span className="text-sm text-muted-foreground">Mar. 2025 – Present</span>
                   </div>
-                  <p className="text-muted-foreground">Tech Innovations Inc.</p>
+                  <p className="text-muted-foreground">University of Virginia, Charlottesville, VA</p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-                    <li>Led the development of the company's flagship web application</li>
-                    <li>Implemented responsive designs and improved performance by 40%</li>
-                    <li>Mentored junior developers and conducted code reviews</li>
+                    <li>
+                      Research and model the proton spin structure, focusing on the momentum distributions of polarized sea quarks
+                    </li>
+                    <li>
+                      Onboarded with tools and frameworks to prepare for momentum detector simulations and upcoming data runs
+                    </li>
                   </ul>
                 </div>
-
+                {/* Natural Language Processing Researcher */}
                 <div>
                   <div className="flex flex-col justify-between gap-1 sm:flex-row">
-                    <h3 className="font-semibold">Web Developer</h3>
-                    <span className="text-sm text-muted-foreground">2020 - 2022</span>
+                    <h3 className="font-semibold">Natural Language Processing Researcher</h3>
+                    <span className="text-sm text-muted-foreground">Feb. 2025 – Present</span>
                   </div>
-                  <p className="text-muted-foreground">Digital Solutions LLC</p>
+                  <p className="text-muted-foreground">University of Virginia, Charlottesville, VA</p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-                    <li>Developed and maintained client websites using React and Next.js</li>
-                    <li>Collaborated with designers to implement pixel-perfect UI</li>
-                    <li>Integrated third-party APIs and services</li>
+                    <li>
+                      Research under PhD Aidan San to extend GSM-Symbolic and GSM-NoOp benchmarks for systematic LLM reliability evaluation
+                    </li>
+                    <li>
+                      Investigate how textual injections via prompting affect LLM performance in mathematical reasoning
+                    </li>
+                  </ul>
+                </div>
+                {/* Data Science Intern */}
+                <div>
+                  <div className="flex flex-col justify-between gap-1 sm:flex-row">
+                    <h3 className="font-semibold">Data Science Intern</h3>
+                    <span className="text-sm text-muted-foreground">Dec. 2024 – Present</span>
+                  </div>
+                  <p className="text-muted-foreground">The Force for Health Network, Remote</p>
+                  <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+                    <li>
+                      Reported 10+ AI vulnerabilities in chatbot features for jailbreak risks and misinformation
+                    </li>
+                    <li>
+                      Collaborated with platform architects to address 30+ critical bugs and suggest actionable UI/UX improvements
+                    </li>
+                    <li>
+                      Optimized SEO for 50+ web pages using Yoast SEO
+                    </li>
+                  </ul>
+                </div>
+                {/* Mechanistic Interpretability Researcher */}
+                <div>
+                  <div className="flex flex-col justify-between gap-1 sm:flex-row">
+                    <h3 className="font-semibold">Mechanistic Interpretability Researcher</h3>
+                    <span className="text-sm text-muted-foreground">Nov. 2024 – Present</span>
+                  </div>
+                  <p className="text-muted-foreground">Algoverse AI, Remote</p>
+                  <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+                    <li>
+                      Collaborate with 4 researchers to explore feature universality in Gemma-2 models via Sparse Autoencoders
+                    </li>
+                    <li>
+                      Utilize SVCCA and paired RSA scores to benchmark representational similarity between transformer models
+                    </li>
+                  </ul>
+                </div>
+                {/* Information Technology Laboratory Intern */}
+                <div>
+                  <div className="flex flex-col justify-between gap-1 sm:flex-row">
+                    <h3 className="font-semibold">Information Technology Laboratory Intern</h3>
+                    <span className="text-sm text-muted-foreground">May 2023 – Aug. 2023</span>
+                  </div>
+                  <p className="text-muted-foreground">
+                    National Institute of Standards and Technology, Gaithersburg, MD
+                  </p>
+                  <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+                    <li>
+                      Drafted documentation for mobile government-issued PIV cards aligning with CBOR standards and federal/NIST protocols
+                    </li>
+                    <li>
+                      Defined 150+ unique data elements with 6 attributes for authentication, encryption, and digital signatures
+                    </li>
                   </ul>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Skills Section */}
+            {/* Technical Skills Section */}
             <Card className="border border-border bg-card/70 backdrop-blur-md">
               <CardHeader>
-                <CardTitle className="text-xl">Skills</CardTitle>
+                <CardTitle className="text-xl">Technical Skills</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
                   <div>
-                    <h3 className="font-semibold">Frontend</h3>
+                    <h3 className="font-semibold">Languages</h3>
                     <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-                      <li>React / Next.js</li>
+                      <li>Java</li>
+                      <li>Python</li>
+                      <li>C</li>
+                      <li>SQL</li>
+                      <li>HTML/CSS</li>
+                      <li>JavaScript</li>
                       <li>TypeScript</li>
-                      <li>Tailwind CSS</li>
-                      <li>HTML / CSS</li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold">Backend</h3>
+                    <h3 className="font-semibold">Frameworks &amp; Libraries</h3>
                     <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-                      <li>Node.js</li>
-                      <li>Express</li>
-                      <li>MongoDB</li>
-                      <li>PostgreSQL</li>
+                      <li>React, Node.js, Next.js, Flask, Electron, Three.js, SAELens</li>
+                      <li>pandas, NumPy, Matplotlib, PyTorch, Transformers, scikit-learn</li>
+                      <li>LangChain, LangGraph, Porcupine</li>
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold">Tools & Others</h3>
+                    <h3 className="font-semibold">Developer Tools</h3>
                     <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+                      <li>Google Colab</li>
                       <li>Git / GitHub</li>
-                      <li>Docker</li>
-                      <li>CI/CD</li>
-                      <li>Agile / Scrum</li>
+                      <li>IntelliJ</li>
+                      <li>VS Code</li>
+                      <li>Jupyter</li>
+                      <li>RunPod</li>
+                      <li>Rivanna</li>
                     </ul>
                   </div>
                 </div>
@@ -135,4 +201,3 @@ export default function ResumePage() {
     </div>
   )
 }
-

@@ -11,31 +11,59 @@ interface MousePosition {
 export function EnhancedBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const { resolvedTheme } = useTheme()
-  const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 })
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
   const animationFrameRef = useRef<number>()
   const timeRef = useRef<number>(0)
+  const lastValidMousePos = useRef<MousePosition | null>(null)
+  const centerPos = useRef<MousePosition>({ x: 0, y: 0 })
 
   // Track actual mouse position and target position for smooth movement
   const actualMousePosition = useRef<MousePosition>({ x: 0, y: 0 })
   const targetMousePosition = useRef<MousePosition>({ x: 0, y: 0 })
 
-  // Handle mouse movement
-  const handleMouseMove = (event: MouseEvent) => {
-    targetMousePosition.current = {
-      x: event.clientX,
-      y: event.clientY,
+  // Track canvas position for accurate mouse positioning
+  const canvasPosition = useRef<{ top: number; left: number }>({ top: 0, left: 0 })
+
+  // Update canvas position
+  const updateCanvasPosition = () => {
+    if (canvasRef.current) {
+      const rect = canvasRef.current.getBoundingClientRect()
+      canvasPosition.current = {
+        top: rect.top,
+        left: rect.left,
+      }
     }
+  }
+
+  // Handle mouse movement with scroll compensation
+  const handleMouseMove = (event: MouseEvent) => {
+    if (!canvasRef.current) return
+
+    // Get mouse position relative to the canvas
+    const x = event.clientX
+    const y = event.clientY
+
+    // Store this as the last valid mouse position
+    lastValidMousePos.current = { x, y }
+
+    // Update target position
+    targetMousePosition.current = { x, y }
   }
 
   // Handle touch movement for mobile
   const handleTouchMove = (event: TouchEvent) => {
     if (event.touches.length > 0) {
-      targetMousePosition.current = {
-        x: event.touches[0].clientX,
-        y: event.touches[0].clientY,
-      }
+      const x = event.touches[0].clientX
+      const y = event.touches[0].clientY
+
+      lastValidMousePos.current = { x, y }
+      targetMousePosition.current = { x, y }
     }
+  }
+
+  // Handle scroll events
+  const handleScroll = () => {
+    updateCanvasPosition()
   }
 
   // Handle window resize
@@ -44,16 +72,20 @@ export function EnhancedBackground() {
       const { width, height } = canvasRef.current.getBoundingClientRect()
       setDimensions({ width, height })
 
+      // Update canvas position
+      updateCanvasPosition()
+
+      // Update center position
+      centerPos.current = {
+        x: width / 2,
+        y: height / 2,
+      }
+
       // Set initial position to center of screen
       if (actualMousePosition.current.x === 0 && actualMousePosition.current.y === 0) {
-        actualMousePosition.current = {
-          x: width / 2,
-          y: height / 2,
-        }
-        targetMousePosition.current = {
-          x: width / 2,
-          y: height / 2,
-        }
+        actualMousePosition.current = { ...centerPos.current }
+        targetMousePosition.current = { ...centerPos.current }
+        lastValidMousePos.current = { ...centerPos.current }
       }
 
       // Update canvas dimensions
@@ -76,15 +108,26 @@ export function EnhancedBackground() {
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-    // Smooth movement - ease towards target position
-    actualMousePosition.current.x += (targetMousePosition.current.x - actualMousePosition.current.x) * 0.1
-    actualMousePosition.current.y += (targetMousePosition.current.y - actualMousePosition.current.y) * 0.1
+    // Calculate mouse position relative to canvas
+    const relativeMouseX = targetMousePosition.current.x - canvasPosition.current.left
+    const relativeMouseY = targetMousePosition.current.y - canvasPosition.current.top
 
-    // Update state for components that might need it
-    setMousePosition({
-      x: actualMousePosition.current.x,
-      y: actualMousePosition.current.y,
-    })
+    // Smooth movement - ease towards target position
+    actualMousePosition.current.x += (relativeMouseX - actualMousePosition.current.x) * 0.1
+    actualMousePosition.current.y += (relativeMouseY - actualMousePosition.current.y) * 0.1
+
+    // Boundary check - if orb is outside canvas, gradually bring it back
+    const margin = 50 // pixels
+    if (
+      actualMousePosition.current.x < -margin ||
+      actualMousePosition.current.x > canvas.width + margin ||
+      actualMousePosition.current.y < -margin ||
+      actualMousePosition.current.y > canvas.height + margin
+    ) {
+      // Reset to center if way outside bounds
+      actualMousePosition.current.x = centerPos.current.x
+      actualMousePosition.current.y = centerPos.current.y
+    }
 
     // Draw flowing lines (from AnimatedBackground)
     drawFlowingLines(ctx, canvas.width, canvas.height, timeRef.current)
@@ -142,9 +185,10 @@ export function EnhancedBackground() {
     const particleCount = 40 // More particles
 
     for (let i = 0; i < particleCount; i++) {
-      const x = (Math.sin(time * (i * 0.2) + i * 50) * 0.5 + 0.5) * width
-      const y = (Math.cos(time * (i * 0.15) + i * 50) * 0.5 + 0.5) * height
-      const size = 1.5 + Math.sin(time * i) * 1.5 // Larger particles
+      // Reduce the time multipliers to slow down the movement
+      const x = (Math.sin(time * (i * 0.08) + i * 50) * 0.5 + 0.5) * width
+      const y = (Math.cos(time * (i * 0.06) + i * 50) * 0.5 + 0.5) * height
+      const size = 1.5 + Math.sin(time * 0.5 * i) * 1.5 // Slower size pulsing too
 
       ctx.beginPath()
       ctx.arc(x, y, size, 0, Math.PI * 2)
@@ -248,23 +292,41 @@ export function EnhancedBackground() {
     }
   }
 
+  // Handle visibility change (tab switching)
+  const handleVisibilityChange = () => {
+    if (document.hidden) {
+      // When tab is not visible, reset to center
+      if (centerPos.current) {
+        actualMousePosition.current = { ...centerPos.current }
+      }
+    } else {
+      // When tab becomes visible again, update canvas position
+      updateCanvasPosition()
+    }
+  }
+
   useEffect(() => {
     // Set up event listeners
-    window.addEventListener("mousemove", handleMouseMove)
-    window.addEventListener("touchmove", handleTouchMove)
+    document.addEventListener("mousemove", handleMouseMove, { passive: true })
+    document.addEventListener("touchmove", handleTouchMove, { passive: true })
     window.addEventListener("resize", handleResize)
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    document.addEventListener("visibilitychange", handleVisibilityChange)
 
-    // Initialize dimensions
+    // Initialize dimensions and position
     handleResize()
+    updateCanvasPosition()
 
     // Start animation
     animationFrameRef.current = requestAnimationFrame(drawBackground)
 
     // Cleanup
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove)
-      window.removeEventListener("touchmove", handleTouchMove)
+      document.removeEventListener("mousemove", handleMouseMove)
+      document.removeEventListener("touchmove", handleTouchMove)
       window.removeEventListener("resize", handleResize)
+      window.removeEventListener("scroll", handleScroll)
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
 
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current)
@@ -272,6 +334,6 @@ export function EnhancedBackground() {
     }
   }, [resolvedTheme])
 
-  return <canvas ref={canvasRef} className="absolute inset-0 h-full w-full z-0" style={{ touchAction: "none" }} />
+  return <canvas ref={canvasRef} className="fixed inset-0 h-full w-full z-0" style={{ touchAction: "none" }} />
 }
 

@@ -54,7 +54,12 @@ export default function ContactPage() {
                 className="mx-auto max-w-[700px] text-muted-foreground md:text-lg opacity-0 animate-fade-in"
                 style={{ animationDelay: "1s", animationFillMode: "forwards" }}
               >
-                Have a question or want to work together? Feel free to reach out!
+                <TypingEffect
+                  text="Feel free to reach out!"
+                  speed={50}
+                  delay={1000}
+                  hideCursorAfter={500}
+                />
               </p>
             </div>
           </div>
@@ -142,8 +147,8 @@ export default function ContactPage() {
                   <Mail className="h-5 w-5" />
                   <div>
                     <h3 className="font-medium">Email</h3>
-                    <a href="mailto:hello@example.com" className="text-sm text-muted-foreground hover:text-foreground">
-                      hello@example.com
+                    <a href="mailto:danieljson15@gmail.com" className="text-sm text-muted-foreground hover:text-foreground">
+                      Personal: danieljson15@gmail.com
                     </a>
                   </div>
                 </div>
@@ -151,7 +156,7 @@ export default function ContactPage() {
                   <MapPin className="h-5 w-5" />
                   <div>
                     <h3 className="font-medium">Location</h3>
-                    <p className="text-sm text-muted-foreground">San Francisco, California</p>
+                    <p className="text-sm text-muted-foreground">Virginia, VA</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -159,12 +164,12 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-medium">LinkedIn</h3>
                     <a
-                      href="https://linkedin.com"
+                      href="https://www.linkedin.com/in/daniel-son15/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-muted-foreground hover:text-foreground"
                     >
-                      linkedin.com/in/johndoe
+                      linkedin.com/in/daniel-son15
                     </a>
                   </div>
                 </div>
@@ -173,12 +178,12 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-medium">GitHub</h3>
                     <a
-                      href="https://github.com"
+                      href="https://github.com/danieljson15"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm text-muted-foreground hover:text-foreground"
                     >
-                      github.com/johndoe
+                      github.com/danieljson15
                     </a>
                   </div>
                 </div>

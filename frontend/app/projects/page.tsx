@@ -1,34 +1,46 @@
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import { Github } from "lucide-react"
 import { EnhancedBackground } from "@/components/enhanced-background"
 import { TypingEffect } from "@/components/typing-effect"
 
 export default function ProjectsPage() {
   const projects = [
     {
-      title: "Portfolio Website",
-      description: "A personal portfolio website built with Next.js and Tailwind CSS.",
-      tags: ["Next.js", "React", "Tailwind CSS"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "Jarvis",
+      description:
+        "A voice-activated multi-agent assistant that uses LLMs for browser control, knowledge retrieval, and desktop automation through LangChain-powered coordination.",
+      tags: [
+        "Python",
+        "Electron",
+        "React",
+        "Next.js",
+        "Three.js",
+        "TypeScript",
+        "LangChain",
+        "LangGraph",
+        "Porcupine",
+      ],
+      githubUrl: "https://github.com/JouBarzdukas/hoo-needs-hands",
       image: "/placeholder.svg?height=400&width=600",
     },
     {
-      title: "E-commerce Platform",
-      description: "A full-stack e-commerce platform with user authentication and payment processing.",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
-      demoUrl: "#",
-      githubUrl: "#",
-      image: "/placeholder.svg?height=400&width=600",
-    },
-    {
-      title: "Weather App",
-      description: "A weather application that displays current weather and forecasts based on location.",
-      tags: ["JavaScript", "API", "CSS"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "@everyone",
+      description:
+        "A personalized Discord analytics tool that uses ML to extract conversational insights and embeds users into a 3D semantic space based on message history.",
+      tags: [
+        "Python",
+        "React",
+        "Next.js",
+        "Three.js",
+        "TypeScript",
+        "Flask",
+        "SQLite",
+        "scikit-learn",
+        "Transformers",
+      ],
+      githubUrl: "https://github.com/pradeepravi26/at-everyone",
       image: "/placeholder.svg?height=400&width=600",
     },
   ]
@@ -47,10 +59,16 @@ export default function ProjectsPage() {
                 className="mx-auto max-w-[700px] text-muted-foreground md:text-lg opacity-0 animate-fade-in"
                 style={{ animationDelay: "1s", animationFillMode: "forwards" }}
               >
-                A collection of projects I've worked on, showcasing my skills and experience.
+                <TypingEffect
+    text="A collection of projects I've worked on!"
+    speed={50}
+    delay={1000}
+    hideCursorAfter={500}
+  />
               </p>
             </div>
           </div>
+
           <div
             className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 opacity-0 animate-fade-in"
             style={{ animationDelay: "1.5s", animationFillMode: "forwards" }}
@@ -59,7 +77,7 @@ export default function ProjectsPage() {
               <Card key={index} className="overflow-hidden border border-border bg-card/70 backdrop-blur-md">
                 <div className="aspect-video overflow-hidden bg-secondary/20">
                   <img
-                    src={project.image || "/placeholder.svg"}
+                    src={project.image}
                     alt={project.title}
                     className="h-full w-full object-cover transition-transform duration-300 hover:scale-105 opacity-80"
                   />
@@ -84,12 +102,6 @@ export default function ProjectsPage() {
                       Code
                     </a>
                   </Button>
-                  <Button asChild size="sm" variant="secondary">
-                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Demo
-                    </a>
-                  </Button>
                 </CardFooter>
               </Card>
             ))}
@@ -99,4 +111,3 @@ export default function ProjectsPage() {
     </div>
   )
 }
-
