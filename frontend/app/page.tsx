@@ -35,7 +35,7 @@ export default function Home() {
               </Link>
             </Button>
             <Button asChild variant="secondary" size="lg">
-              <Link href="/resume">My Resume</Link>
+              <Link href="/experience">My Experience</Link>
             </Button>
           </div>
         </div>
