@@ -12,7 +12,7 @@ import { ThemeToggle } from "@/components/theme-toggle"
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/projects", label: "Projects" },
-  { href: "/resume", label: "Resume" },
+  { href: "/experience", label: "Experience" },
   { href: "/contact", label: "Contact" },
 ]
 
@@ -24,7 +24,7 @@ export function Navigation() {
     <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
         <Link href="/" className="text-xl font-bold tracking-tight">
-          JD
+          DJS
         </Link>
         <nav className="hidden md:flex md:gap-6">
           {navItems.map((item) => (
@@ -52,7 +52,7 @@ export function Navigation() {
         <div className="fixed inset-0 z-50 bg-background md:hidden">
           <div className="container flex h-16 items-center justify-between px-4">
             <Link href="/" className="text-xl font-bold tracking-tight">
-              JD
+            DJS
             </Link>
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
               <X className="h-5 w-5" />
