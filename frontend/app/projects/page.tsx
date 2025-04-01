@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github } from "lucide-react"
 import { AnimatedBackground } from "@/components/animated-background"
+import { TypingEffect } from "@/components/typing-effect"
 
 export default function ProjectsPage() {
   const projects = [
@@ -38,12 +39,20 @@ export default function ProjectsPage() {
       <div className="container relative z-10 py-24 md:py-32">
         <div className="mx-auto max-w-5xl space-y-8">
           <div className="space-y-4 text-center">
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Projects</h1>
-            <p className="mx-auto max-w-[700px] text-muted-foreground md:text-lg">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+              <TypingEffect text="Projects" speed={100} hideCursorAfter={500} />
+            </h1>
+            <p
+              className="mx-auto max-w-[700px] text-muted-foreground md:text-lg opacity-0 animate-fade-in"
+              style={{ animationDelay: "1s", animationFillMode: "forwards" }}
+            >
               A collection of projects I've worked on, showcasing my skills and experience.
             </p>
           </div>
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 opacity-0 animate-fade-in"
+            style={{ animationDelay: "1.5s", animationFillMode: "forwards" }}
+          >
             {projects.map((project, index) => (
               <Card key={index} className="overflow-hidden border border-border bg-card/50 backdrop-blur-sm">
                 <div className="aspect-video overflow-hidden bg-secondary/20">

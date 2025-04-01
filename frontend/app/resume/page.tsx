@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
 import { AnimatedBackground } from "@/components/animated-background"
+import { TypingEffect } from "@/components/typing-effect"
 
 export default function ResumePage() {
   return (
@@ -11,18 +12,33 @@ export default function ResumePage() {
         <div className="mx-auto max-w-4xl space-y-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">Resume</h1>
-              <p className="mt-2 text-muted-foreground md:text-lg">My professional experience and skills</p>
+              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                <TypingEffect text="Resume" speed={100} hideCursorAfter={500} />
+              </h1>
+              <p
+                className="mt-2 text-muted-foreground md:text-lg opacity-0 animate-fade-in"
+                style={{ animationDelay: "1s", animationFillMode: "forwards" }}
+              >
+                My professional experience and skills
+              </p>
             </div>
-            <Button asChild variant="outline" className="border-2">
-              <a href="#" download>
-                <Download className="mr-2 h-4 w-4" />
-                Download PDF
-              </a>
-            </Button>
+            <div
+              className="opacity-0 animate-fade-in"
+              style={{ animationDelay: "1.5s", animationFillMode: "forwards" }}
+            >
+              <Button asChild variant="outline" className="border-2">
+                <a href="#" download>
+                  <Download className="mr-2 h-4 w-4" />
+                  Download PDF
+                </a>
+              </Button>
+            </div>
           </div>
 
-          <div className="space-y-8">
+          <div
+            className="space-y-8 opacity-0 animate-fade-in"
+            style={{ animationDelay: "2s", animationFillMode: "forwards" }}
+          >
             {/* Education Section */}
             <Card className="border border-border bg-card/50 backdrop-blur-sm">
               <CardHeader>

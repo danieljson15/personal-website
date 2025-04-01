@@ -12,10 +12,10 @@ export default function Home() {
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 text-center">
         <h1 className="animate-fade-in text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
           <span className="block gradient-text">
-            <TypingEffect text="John Doe" speed={100} />
+            <TypingEffect text="John Doe" speed={100} hideCursorAfter={500} />
           </span>
           <span className="mt-2 block text-muted-foreground text-2xl sm:text-3xl md:text-4xl">
-            <TypingEffect text="Software Developer" speed={80} delay={1500} />
+            <TypingEffect text="Software Developer" speed={80} delay={1500} hideCursorAfter={500} />
           </span>
         </h1>
         <p
