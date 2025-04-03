@@ -2,6 +2,104 @@
 
 import type React from "react"
 
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Github, Linkedin, Mail, MapPin } from "lucide-react"
+import { EnhancedBackground } from "@/components/enhanced-background"
+import { TypingEffect } from "@/components/typing-effect"
+
+export default function ContactPage() {
+  return (
+    <div className="relative min-h-screen w-full overflow-hidden">
+      <EnhancedBackground />
+      <div className="container relative z-10 py-24 md:py-32">
+        <div className="mx-auto max-w-5xl space-y-8">
+          <div className="space-y-4 text-center">
+            <div className="text-container inline-block p-4 mb-4">
+              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                <TypingEffect text="Contact Me" speed={100} hideCursorAfter={500} />
+              </h1>
+              <p
+                className="mx-auto max-w-[700px] text-muted-foreground md:text-lg opacity-0 animate-fade-in"
+                style={{ animationDelay: "1s", animationFillMode: "forwards" }}
+              >
+                <TypingEffect
+                  text="Feel free to reach out!"
+                  speed={50}
+                  delay={1000}
+                  hideCursorAfter={500}
+                />
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="opacity-0 animate-fade-in max-w-2xl mx-auto"
+            style={{ animationDelay: "1.5s", animationFillMode: "forwards" }}
+          >
+            <Card className="border border-border bg-card/70 backdrop-blur-md">
+              <CardHeader>
+                <CardTitle>Contact Information</CardTitle>
+                <CardDescription>Here are the ways you can reach me directly.</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="flex items-start gap-3">
+                  <Mail className="h-5 w-5" />
+                  <div>
+                    <h3 className="font-medium">Email</h3>
+                    <a href="mailto:danieljson15@gmail.com" className="text-sm text-muted-foreground hover:text-foreground">
+                      danieljson15@gmail.com
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5" />
+                  <div>
+                    <h3 className="font-medium">Location</h3>
+                    <p className="text-sm text-muted-foreground">Virginia, VA</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Linkedin className="h-5 w-5" />
+                  <div>
+                    <h3 className="font-medium">LinkedIn</h3>
+                    <a
+                      href="https://www.linkedin.com/in/daniel-son15/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      linkedin.com/in/daniel-son15
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Github className="h-5 w-5" />
+                  <div>
+                    <h3 className="font-medium">GitHub</h3>
+                    <a
+                      href="https://github.com/danieljson15"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-muted-foreground hover:text-foreground"
+                    >
+                      github.com/danieljson15
+                    </a>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+//below is the get in touch form (implement later)
+/*
+"use client"
+
+import type React from "react"
+
 import { useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -194,5 +292,5 @@ export default function ContactPage() {
       </div>
     </div>
   )
-}
+}*/
 
