@@ -10,13 +10,12 @@ export default function ProjectsPage() {
     {
       title: "Jarvis",
       description:
-        "A voice-activated multi-agent assistant that uses LLMs for browser control, knowledge retrieval, and desktop automation through LangChain-powered coordination.",
+        "A voice-activated multi-agent assistant that uses LLMs for browser control, data retrieval, and knowledge tasks through LangChain-powered coordination.",
       tags: [
         "Python",
         "Electron",
         "React",
         "Next.js",
-        "Three.js",
         "TypeScript",
         "LangChain",
         "LangGraph",

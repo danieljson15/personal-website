@@ -42,20 +42,25 @@ export default function ContactPage() {
                 <CardDescription>Here are the ways you can reach me directly.</CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
-                <div className="flex items-start gap-3">
-                  <Mail className="h-5 w-5" />
-                  <div>
-                    <h3 className="font-medium">Email</h3>
-                    <a href="mailto:danieljson15@gmail.com" className="text-sm text-muted-foreground hover:text-foreground">
-                      danieljson15@gmail.com
-                    </a>
-                  </div>
-                </div>
+              <div className="flex items-start gap-3">
+  <Mail className="h-5 w-5 mt-1" />
+  <div>
+    <h3 className="font-medium">Email</h3>
+    <div className="flex flex-col text-sm text-muted-foreground">
+      <a href="mailto:danieljson15@gmail.com" className="hover:text-foreground">
+        <span className="font-semibold">Personal:</span> danieljson15@gmail.com
+      </a>
+      <a href="mailto:djs6cz@virginia.edu" className="hover:text-foreground">
+        <span className="font-semibold">School:</span> djs6cz@virginia.edu
+      </a>
+    </div>
+  </div>
+</div>
                 <div className="flex items-start gap-3">
                   <MapPin className="h-5 w-5" />
                   <div>
                     <h3 className="font-medium">Location</h3>
-                    <p className="text-sm text-muted-foreground">Virginia, VA</p>
+                    <p className="text-sm text-muted-foreground">School: Charlottesville, VA | Home: Vienna, VA</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

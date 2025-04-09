@@ -95,6 +95,9 @@ export default function ResumePage() {
                     <li>
                       Investigate how textual injections via prompting affect LLM performance in mathematical reasoning
                     </li>
+                    <li>
+                    Automate large-scale LLM evaluations with SLURM job scripts on UVA’s Rivanna HPC cluster
+                    </li>
                   </ul>
                 </div>
                 {/* Data Science Intern */}
@@ -155,46 +158,46 @@ export default function ResumePage() {
 
             {/* Technical Skills Section */}
             <Card className="border border-border bg-card/70 backdrop-blur-md">
-              <CardHeader>
-                <CardTitle className="text-xl">Technical Skills</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
-                  <div>
-                    <h3 className="font-semibold">Languages</h3>
-                    <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-                      <li>Java</li>
-                      <li>Python</li>
-                      <li>C</li>
-                      <li>SQL</li>
-                      <li>HTML/CSS</li>
-                      <li>JavaScript</li>
-                      <li>TypeScript</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Frameworks &amp; Libraries</h3>
-                    <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-                      <li>React, Node.js, Next.js, Flask, Electron, Three.js, SAELens</li>
-                      <li>pandas, NumPy, Matplotlib, PyTorch, Transformers, scikit-learn</li>
-                      <li>LangChain, LangGraph, Porcupine</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold">Developer Tools</h3>
-                    <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-                      <li>Google Colab</li>
-                      <li>Git / GitHub</li>
-                      <li>IntelliJ</li>
-                      <li>VS Code</li>
-                      <li>Jupyter</li>
-                      <li>RunPod</li>
-                      <li>Rivanna</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+  <CardHeader>
+    <CardTitle className="text-xl">Technical Skills</CardTitle>
+  </CardHeader>
+  <CardContent>
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+      <div>
+        <h3 className="font-semibold">Languages</h3>
+        <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+          <li>Java</li>
+          <li>Python</li>
+          <li>C</li>
+          <li>SQL</li>
+          <li>JavaScript</li>
+          <li>TypeScript</li>
+        </ul>
+      </div>
+      <div>
+        <h3 className="font-semibold">Frameworks &amp; Libraries</h3>
+        <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+          <li>React, Node.js, Next.js, Flask, Electron, SAELens</li>
+          <li>pandas, NumPy, Matplotlib, PyTorch, Transformers</li>
+          <li>scikit-learn, LangChain, LangGraph, Hugging Face</li>
+        </ul>
+      </div>
+      <div>
+        <h3 className="font-semibold">Developer Tools</h3>
+        <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+          <li>Git / GitHub</li>
+          <li>VS Code</li>
+          <li>IntelliJ</li>
+          <li>Figma</li>
+          <li>Yoast SEO</li>
+          <li>SLURM</li>
+          <li>Google Colab / Jupyter</li>
+          <li>RunPod / Rivanna</li>
+        </ul>
+      </div>
+    </div>
+  </CardContent>
+</Card>
           </div>
         </div>
       </div>

@@ -43,6 +43,20 @@ export default function HobbiesPage() {
       tags: ["Sandbox", "Crafting", "Adventure"],
       releaseYear: 2011,
     },
+    {
+      title: "Don't Starve Together",
+      description: "A multiplayer survival game filled with strange creatures, dark nights, and harsh environments.",
+      image: "/personal-website/hobbies/dont-starve-together.avif",
+      tags: ["Survival", "Multiplayer", "Stylized"],
+      releaseYear: 2016,
+    },
+    {
+      title: "Shovel Knight",
+      description: "A retro-inspired action platformer with tight gameplay and charming pixel art.",
+      image: "/personal-website/hobbies/shovel-knight.avif",
+      tags: ["Platformer", "Retro", "Indie"],
+      releaseYear: 2014,
+    },
   ]
 
   const movies: HobbyItem[] = [
@@ -74,6 +88,20 @@ export default function HobbiesPage() {
       tags: ["Drama", "Anime", "Emotional"],
       releaseYear: 2016,
     },
+    {
+      title: "Snowpiercer",
+      description: "A post-apocalyptic train ride through class warfare, survival, and revolution.",
+      image: "/personal-website/hobbies/snowpiercer.jpg",
+      tags: ["Sci-Fi", "Thriller", "Dystopia"],
+      releaseYear: 2013,
+    },
+    {
+      title: "Howl's Moving Castle",
+      description: "A magical journey through a whimsical world of love, war, and transformation.",
+      image: "/personal-website/hobbies/howls-moving-castle.jpg",
+      tags: ["Fantasy", "Anime", "Adventure"],
+      releaseYear: 2004,
+    },
   ]
 
   const manga: HobbyItem[] = [
@@ -100,6 +128,18 @@ export default function HobbiesPage() {
       description: "A psychological thriller of cat-and-mouse between two geniuses fighting over morality and justice.",
       image: "/personal-website/hobbies/death-note.jpg",
       tags: ["Thriller", "Supernatural", "Mind Games"],
+    },
+    {
+      title: "Erased",
+      description: "A time-travel mystery that explores regret, redemption, and child protection.",
+      image: "/personal-website/hobbies/erased.avif",
+      tags: ["Mystery", "Drama", "Supernatural"],
+    },
+    {
+      title: "Hunter x Hunter",
+      description: "A shonen adventure packed with rich world-building, clever battles, and emotional depth.",
+      image: "/personal-website/hobbies/hunter-x-hunter.jpg",
+      tags: ["Shonen", "Adventure", "Strategy"],
     },
   ]
 
@@ -155,7 +195,7 @@ export default function HobbiesPage() {
               >
                 <TypingEffect
                   text="A collection of my favorite games, movies, and manga."
-                  speed={65}
+                  speed={50}
                   delay={1000}
                   hideCursorAfter={500}
                 />
