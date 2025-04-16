@@ -42,6 +42,21 @@ export default function ProjectsPage() {
       githubUrl: "https://github.com/pradeepravi26/at-everyone",
       image: "/personal-website/projects/@everyone.png",
     },
+    {
+      title: "Steam Forecasting",
+      description:
+        "A time series analysis project using ARIMA, SARIMA, ETS, and Prophet to forecast monthly game release trends on Steam from 1997–2024.",
+      tags: [
+        "Python",
+        "Pandas",
+        "Matplotlib",
+        "Statsmodels",
+        "Forecasting",
+        "Time Series",
+      ],
+      githubUrl: "https://github.com/danieljson15/steam-release-forecasting",
+      image: "/personal-website/projects/steam.jpg",
+    },
   ]
 
   return (
