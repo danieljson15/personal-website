@@ -23,7 +23,7 @@ export default function Home() {
             className="mt-6 mx-auto max-w-md text-base text-muted-foreground md:text-lg opacity-0 animate-fade-in"
             style={{ animationDelay: "3s", animationFillMode: "forwards" }}
           >
-            First-year student at the University of Virginia planning to double major in Computer Science and Data Science. Interested in AI/ML, research, and computational social sciences.
+            Second-year BS Data Science / BA Computer Science at UVA, focusing on model representations, robustness, and human-centered evaluation. Actively seeking collaborations and Summer ’26 research/industry internships.
           </p>
           <div
             className="mt-10 flex flex-col sm:flex-row gap-4 opacity-0 animate-fade-in justify-center"

@@ -7,6 +7,29 @@ import { TypingEffect } from "@/components/typing-effect"
 
 export default function ProjectsPage() {
   const projects = [
+    // ✅ NEW — ACL SRW 2025 goes first
+    {
+      title: "Semantic Convergence: Investigating Shared Representations Across Scaled LLMs",
+      description:
+        "ACL Student Research Workshop 2025- Presented at the ACL Conference in Vienna, Austria as First Author. We study whether larger LLMs converge toward shared internal representations across scaled Gemma-2 models, probing what converges (and where).",
+      tags: [
+        "LLMs",
+        "Representation Similarity",
+        "NLP Robustness",
+        "Interpretability",
+        "Gemma-2",
+        "Transformers",
+        "ACL SRW ’25"
+      ],
+      // Optional links for this card:
+      videoUrl:
+        "https://underline.io/events/485/posters/20617/poster/123435-semantic-convergence-investigating-shared-representations-across-scaled-llms?tab=Video",
+      paperUrl: "https://arxiv.org/abs/2507.22918",
+      // Drop a thumbnail at /public/personal-website/projects/acl-srw-2025.jpg
+      image: "/personal-website/projects/acl-srw-2025.png",
+    },
+
+    // existing projects (unchanged)
     {
       title: "Jarvis",
       description:
@@ -74,11 +97,11 @@ export default function ProjectsPage() {
                 style={{ animationDelay: "1s", animationFillMode: "forwards" }}
               >
                 <TypingEffect
-    text="A collection of projects I've worked on!"
-    speed={50}
-    delay={1000}
-    hideCursorAfter={500}
-  />
+                  text="A collection of projects I've worked on!"
+                  speed={50}
+                  delay={1000}
+                  hideCursorAfter={500}
+                />
               </p>
             </div>
           </div>
@@ -109,13 +132,30 @@ export default function ProjectsPage() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="flex gap-2">
-                  <Button asChild size="sm" variant="outline">
-                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </a>
-                  </Button>
+                <CardFooter className="flex flex-wrap gap-2">
+                  {/* Conditionally render whichever links exist, no new imports */}
+                  {project.githubUrl && (
+                    <Button asChild size="sm" variant="outline">
+                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                        <Github className="mr-2 h-4 w-4" />
+                        Code
+                      </a>
+                    </Button>
+                  )}
+                  {project.videoUrl && (
+                    <Button asChild size="sm" variant="outline">
+                      <a href={project.videoUrl} target="_blank" rel="noopener noreferrer">
+                        ▶ Video/Poster
+                      </a>
+                    </Button>
+                  )}
+                  {project.paperUrl && (
+                    <Button asChild size="sm" variant="outline">
+                      <a href={project.paperUrl} target="_blank" rel="noopener noreferrer">
+                        📄 Paper
+                      </a>
+                    </Button>
+                  )}
                 </CardFooter>
               </Card>
             ))}
