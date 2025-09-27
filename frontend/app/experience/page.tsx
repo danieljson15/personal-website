@@ -12,30 +12,32 @@ export default function ResumePage() {
         <div className="mx-auto max-w-4xl space-y-8">
           {/* Header Section */}
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-  <div className="text-container p-4">
-    <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-      <TypingEffect text="Experience" speed={100} hideCursorAfter={500} />
-    </h1>
-    <p
-      className="mt-2 text-muted-foreground md:text-lg opacity-0 animate-fade-in"
-      style={{ animationDelay: "1s", animationFillMode: "forwards" }}
-    >
-      <TypingEffect
+            <div className="text-container p-4">
+              <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
+                <TypingEffect text="Experience" speed={100} hideCursorAfter={500} />
+              </h1>
+              <p
+                className="mt-2 text-muted-foreground md:text-lg opacity-0 animate-fade-in"
+                style={{ animationDelay: "1s", animationFillMode: "forwards" }}
+              >
+                <TypingEffect
                   text="My educational background, working/research experience, and skills."
                   speed={50}
                   delay={1000}
                   hideCursorAfter={500}
                 />
-    </p>
-  </div>
-</div>
+              </p>
+            </div>
+            <div className="opacity-0 animate-fade-in" style={{ animationDelay: "1.2s", animationFillMode: "forwards" }}>
+            </div>
+          </div>
 
           {/* Main Content */}
           <div
             className="space-y-8 opacity-0 animate-fade-in"
             style={{ animationDelay: "2s", animationFillMode: "forwards" }}
           >
-            {/* Education Section */}
+            {/* Education */}
             <Card className="border border-border bg-card/70 backdrop-blur-md">
               <CardHeader>
                 <CardTitle className="text-xl">Education</CardTitle>
@@ -48,23 +50,75 @@ export default function ResumePage() {
                   </div>
                   <p className="text-muted-foreground">Charlottesville, VA</p>
                   <p className="mt-2 text-sm">
-                    Bachelor of Arts in Computer Science &amp; Bachelor of Science in Data Science • GPA: 4.0
+                    Bachelor of Science in Data Science, Bachelor of Arts in Computer Science • GPA: 4.0
                   </p>
-                  <p className="mt-2 text-sm">
-                    Coursework: Data Structures &amp; Algorithms, Discrete Mathematics, Multivariable Calculus, Linear Algebra, Computer Systems, Data Science Foundations, Microeconomics.
-                    <br />
-                    Activities: Korean Student Association (Undergraduate Rep.), Business and AI Institute, ML @ UVA.
-                  </p>
+                  <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+                    <li>
+                      <span className="font-medium">Relevant Coursework:</span> Multivariable Calculus, Linear Algebra, Data
+                      Structures and Algorithms, Discrete Mathematics and Theory, Computer Systems and Organizations,
+                      Computational Probability, Systems I, Design I
+                    </li>
+                    <li>
+                      <span className="font-medium">Activities:</span> Undergraduate Data Science Council (Professional
+                      Development Comittee), Korean Student Association (Former Internal Intern, Current Sports Chair), BAI
+                      Institute, Kappa Theta Pi
+                    </li>
+                  </ul>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Experience and Research Section */}
+            {/* Publications — mirrors LaTeX order/content */}
+            <Card className="border border-border bg-card/70 backdrop-blur-md">
+              <CardHeader>
+                <CardTitle className="text-xl">Publications</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div>
+                  <div className="flex flex-col justify-between gap-1 sm:flex-row">
+                    <h3 className="font-semibold">
+                      Semantic Convergence: Investigating Shared Representations Across Scaled LLMs
+                    </h3>
+                    <span className="text-sm text-muted-foreground">July 2025</span>
+                  </div>
+                  <p className="text-muted-foreground">
+                    ACL Student Research Workshop — First Author • Vienna, Austria
+                  </p>
+                  <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+                    <li>
+                      Benchmarked feature universality across Google Gemma LLMs (2B vs 9B) using SVCCA and paired RSA
+                    </li>
+                    <li>
+                      Found strongest representational similarity in middle layers, offering key evidence of cross-scale feature alignment
+                    </li>
+                  </ul>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Experience and Research */}
             <Card className="border border-border bg-card/70 backdrop-blur-md">
               <CardHeader>
                 <CardTitle className="text-xl">Experience and Research</CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
+                {/* Software Engineering Intern */}
+                <div>
+                  <div className="flex flex-col justify-between gap-1 sm:flex-row">
+                    <h3 className="font-semibold">Software Engineering Intern</h3>
+                    <span className="text-sm text-muted-foreground">May 2025 – Aug. 2025</span>
+                  </div>
+                  <p className="text-muted-foreground">SkyBitz AMETEK, Herndon, VA</p>
+                  <ul className="mt-2 list-inside list-disc text-sm space-y-1">
+                    <li>
+                      Spearheaded a LLM text-to-SQL and document-based Q&amp;A system to streamline IoT data access for customers
+                    </li>
+                    <li>
+                      Built LLM pipeline on AWS (Q, Athena, S3, QuickSight) to enable interactive analytics and insights for fleets
+                    </li>
+                  </ul>
+                </div>
+
                 {/* Computational Physics Researcher */}
                 <div>
                   <div className="flex flex-col justify-between gap-1 sm:flex-row">
@@ -74,13 +128,12 @@ export default function ResumePage() {
                   <p className="text-muted-foreground">University of Virginia, Charlottesville, VA</p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
                     <li>
-                      Research and model the proton spin structure, focusing on the momentum distributions of polarized sea quarks
+                      Model particle collisions for the SpinQuest experiment to help study how sea quarks contribute to proton spin
                     </li>
-                    <li>
-                      Onboarded with tools and frameworks to prepare for momentum detector simulations and upcoming data runs
-                    </li>
+                    <li>Run simulations on Rivanna HPC to support momentum reconstruction from detector data</li>
                   </ul>
                 </div>
+
                 {/* Natural Language Processing Researcher */}
                 <div>
                   <div className="flex flex-col justify-between gap-1 sm:flex-row">
@@ -90,52 +143,27 @@ export default function ResumePage() {
                   <p className="text-muted-foreground">University of Virginia, Charlottesville, VA</p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
                     <li>
-                      Research under PhD Aidan San to extend GSM-Symbolic and GSM-NoOp benchmarks for systematic LLM reliability evaluation
+                      Filter symbolic math datasets (e.g., GSM8K, ARC) by question type and extract target entities using spaCy
                     </li>
-                    <li>
-                      Investigate how textual injections via prompting affect LLM performance in mathematical reasoning
-                    </li>
-                    <li>
-                    Automate large-scale LLM evaluations with SLURM job scripts on UVA’s Rivanna HPC cluster
-                    </li>
+                    <li>Design adversarial prompt injections to test LLM reasoning accuracy and robustness across benchmarks</li>
                   </ul>
                 </div>
-                {/* Data Science Intern */}
+
+                {/* Data Science Intern — The Force for Health */}
                 <div>
                   <div className="flex flex-col justify-between gap-1 sm:flex-row">
                     <h3 className="font-semibold">Data Science Intern</h3>
-                    <span className="text-sm text-muted-foreground">Dec. 2024 – Present</span>
+                    <span className="text-sm text-muted-foreground">Dec. 2024 – Apr. 2025</span>
                   </div>
                   <p className="text-muted-foreground">The Force for Health Network, Remote</p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
                     <li>
-                      Reported AI vulnerabilities in chatbot features for jailbreak risks and misinformation
-                    </li>
-                    <li>
-                      Collaborated with platform architects to address 30+ critical bugs and suggest actionable UI/UX improvements
-                    </li>
-                    <li>
-                      Optimized SEO for web pages using Yoast SEO
+                      Improved SEO across 30+ pages using Yoast, and collaborated with engineers to resolve 10+ critical bugs on site
                     </li>
                   </ul>
                 </div>
-                {/* Mechanistic Interpretability Researcher */}
-                <div>
-                  <div className="flex flex-col justify-between gap-1 sm:flex-row">
-                    <h3 className="font-semibold">Mechanistic Interpretability Researcher</h3>
-                    <span className="text-sm text-muted-foreground">Nov. 2024 – Present</span>
-                  </div>
-                  <p className="text-muted-foreground">Algoverse AI, Remote</p>
-                  <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-                    <li>
-                      Collaborate with 4 researchers to explore feature universality in Gemma-2 models via Sparse Autoencoders
-                    </li>
-                    <li>
-                      Utilize SVCCA and paired RSA scores to benchmark representational similarity between transformer models
-                    </li>
-                  </ul>
-                </div>
-                {/* Information Technology Laboratory Intern */}
+
+                {/* Information Technology Laboratory Intern — NIST */}
                 <div>
                   <div className="flex flex-col justify-between gap-1 sm:flex-row">
                     <h3 className="font-semibold">Information Technology Laboratory Intern</h3>
@@ -146,25 +174,25 @@ export default function ResumePage() {
                   </p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
                     <li>
-                      Drafted documentation for mobile government-issued PIV cards aligning with CBOR standards and federal/NIST protocols
+                      Drafted documentation for mobile government-issued PIV cards aligning with digital format and NIST standards
                     </li>
                     <li>
-                      Defined 150+ unique data elements with 6 attributes for authentication, encryption, and digital signatures
+                      Defined 150+ unique data elements each with 6 distinct attributes, organized by different authentication mechanisms, encryption actions, and signature actions
                     </li>
                   </ul>
                 </div>
               </CardContent>
             </Card>
 
-            {/* Technical Skills Section */}
-            <Card className="border border-border bg-card/70 backdrop-blur-md">
+            {/* Technical Skills */}
+<Card className="border border-border bg-card/70 backdrop-blur-md">
   <CardHeader>
     <CardTitle className="text-xl">Technical Skills</CardTitle>
   </CardHeader>
   <CardContent>
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
       <div>
-        <h3 className="font-semibold">Languages</h3>
+        <h3 className="font-semibold">Languages/Frameworks</h3>
         <ul className="mt-2 list-inside list-disc text-sm space-y-1">
           <li>Java</li>
           <li>Python</li>
@@ -172,27 +200,35 @@ export default function ResumePage() {
           <li>SQL</li>
           <li>JavaScript</li>
           <li>TypeScript</li>
+          <li>React</li>
+          <li>Node.js</li>
+          <li>Next.js</li>
+          <li>Flask</li>
+          <li>Electron</li>
         </ul>
       </div>
+
       <div>
-        <h3 className="font-semibold">Frameworks &amp; Libraries</h3>
+        <h3 className="font-semibold">Libraries</h3>
         <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-          <li>React, Node.js, Next.js, Flask, Electron, SAELens</li>
-          <li>pandas, NumPy, Matplotlib, PyTorch, Transformers</li>
-          <li>scikit-learn, LangChain, LangGraph, Hugging Face</li>
+          <li>pandas</li>
+          <li>NumPy</li>
+          <li>Matplotlib</li>
+          <li>PyTorch</li>
+          <li>Transformers</li>
+          <li>scikit-learn</li>
+          <li>LangChain</li>
+          <li>LangGraph</li>
+          <li>Hugging Face</li>
+          <li>SAELens</li>
         </ul>
       </div>
+
       <div>
-        <h3 className="font-semibold">Developer Tools</h3>
+        <h3 className="font-semibold">Cloud/Databases</h3>
         <ul className="mt-2 list-inside list-disc text-sm space-y-1">
-          <li>Git / GitHub</li>
-          <li>VS Code</li>
-          <li>IntelliJ</li>
-          <li>Figma</li>
-          <li>Yoast SEO</li>
-          <li>SLURM</li>
-          <li>Google Colab / Jupyter</li>
-          <li>RunPod / Rivanna</li>
+          <li>AWS (EC2, S3, RDS/Aurora, Athena, QuickSight, Amazon Q Business, IAM)</li>
+          <li>pgAdmin</li>
         </ul>
       </div>
     </div>
