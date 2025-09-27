@@ -50,8 +50,8 @@ export default function ContactPage() {
       <a href="mailto:danieljson15@gmail.com" className="hover:text-foreground">
         <span className="font-semibold">Personal:</span> danieljson15@gmail.com
       </a>
-      <a href="mailto:djs6cz@virginia.edu" className="hover:text-foreground">
-        <span className="font-semibold">School:</span> djs6cz@virginia.edu
+      <a href="mailto:gtb4ua@virginia.edu" className="hover:text-foreground">
+        <span className="font-semibold">School:</span> gtb4ua@virginia.edu
       </a>
     </div>
   </div>
