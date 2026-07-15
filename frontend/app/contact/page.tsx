@@ -16,7 +16,7 @@ export default function ContactPage() {
           <div className="space-y-4 text-center">
             <div className="text-container inline-block p-4 mb-4">
               <h1 className="text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-                <TypingEffect text="Contact Me" speed={100} hideCursorAfter={500} />
+                <TypingEffect text="Contact Me" speed={50} hideCursorAfter={500} />
               </h1>
               <p
                 className="mx-auto max-w-[700px] text-muted-foreground md:text-lg opacity-0 animate-fade-in"
@@ -24,8 +24,8 @@ export default function ContactPage() {
               >
                 <TypingEffect
                   text="Feel free to reach out!"
-                  speed={50}
-                  delay={1000}
+                  speed={35}
+                  delay={600}
                   hideCursorAfter={500}
                 />
               </p>
@@ -298,4 +298,3 @@ export default function ContactPage() {
     </div>
   )
 }*/
-

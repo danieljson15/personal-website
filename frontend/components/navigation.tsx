@@ -24,7 +24,8 @@ export function Navigation() {
   return (
     <header className="fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-md">
       <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        <Link href="/" className="text-xl font-bold tracking-tight">
+        <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
+          <img src="/personal-website/capybara-logo.png" alt="Capybara logo" className="h-8 w-8" />
           DJS
         </Link>
         <nav className="hidden md:flex md:gap-6">
@@ -52,7 +53,8 @@ export function Navigation() {
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 bg-background md:hidden">
           <div className="container flex h-16 items-center justify-between px-4">
-            <Link href="/" className="text-xl font-bold tracking-tight">
+            <Link href="/" className="flex items-center gap-2 text-xl font-bold tracking-tight">
+            <img src="/personal-website/capybara-logo.png" alt="Capybara logo" className="h-8 w-8" />
             DJS
             </Link>
             <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(false)}>
@@ -84,4 +86,3 @@ export function Navigation() {
     </header>
   )
 }
-

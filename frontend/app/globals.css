@@ -154,6 +154,13 @@
   text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
+/* Override the generic dark-mode h1 shadow (which was muddying the clipped
+   gradient fill) with a lighter glow so the name reads crisp white. */
+.dark h1.gradient-text,
+.dark h1 .gradient-text {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+}
+
 @keyframes blink {
   0%,
   100% {
