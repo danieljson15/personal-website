@@ -25,12 +25,18 @@ export function TypingEffect({
   const [showCursor, setShowCursor] = useState(cursor)
 
   useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      setDisplayedText(text)
+      setCurrentIndex(text.length)
+      setShowCursor(false)
+      return
+    }
     const startTyping = setTimeout(() => {
       setIsTyping(true)
     }, delay)
 
     return () => clearTimeout(startTyping)
-  }, [delay])
+  }, [delay, text])
 
   useEffect(() => {
     if (!isTyping) return

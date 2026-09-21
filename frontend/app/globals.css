@@ -4,195 +4,1081 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-    --primary: 0 0% 0%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 0%;
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
-    --accent: 0 0% 96%;
-    --accent-foreground: 0 0% 0%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 0 0% 0%;
-    --radius: 0.25rem;
+    --background: 34 34% 92%;
+    --foreground: 25 22% 15%;
+    --card: 36 42% 98%;
+    --card-foreground: 25 22% 15%;
+    --popover: 30 30% 98%;
+    --popover-foreground: 25 22% 15%;
+    --primary: 25 24% 18%;
+    --primary-foreground: 30 30% 98%;
+    --secondary: 34 30% 89%;
+    --secondary-foreground: 25 18% 21%;
+    --muted: 34 30% 89%;
+    --muted-foreground: 26 10% 40%;
+    --accent: 32 46% 38%;
+    --accent-foreground: 30 30% 98%;
+    --border: 33 26% 80%;
+    --input: 33 26% 80%;
+    --ring: 32 46% 38%;
+    --radius: 0.6rem;
+    --destructive: 6 70% 45%;
+    --destructive-foreground: 30 30% 98%;
   }
-
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 3%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 3%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 0 0% 100%;
-    --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 10%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 65%;
-    --accent: 0 0% 10%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
-    --ring: 0 0% 100%;
+    --background: 26 20% 9%;
+    --foreground: 36 24% 91%;
+    --card: 26 18% 12%;
+    --card-foreground: 36 24% 91%;
+    --popover: 26 18% 12%;
+    --popover-foreground: 36 24% 91%;
+    --primary: 36 24% 91%;
+    --primary-foreground: 26 20% 9%;
+    --secondary: 27 14% 18%;
+    --secondary-foreground: 36 20% 87%;
+    --muted: 27 14% 18%;
+    --muted-foreground: 30 10% 66%;
+    --accent: 36 50% 68%;
+    --accent-foreground: 26 20% 9%;
+    --border: 27 14% 23%;
+    --input: 27 14% 23%;
+    --ring: 36 50% 68%;
+    --destructive: 6 60% 48%;
+    --destructive-foreground: 30 30% 98%;
   }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
+    margin: 0;
   }
-
-  /* Dark theme background */
-  .dark body {
-    background-color: #000;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
   }
-
-  /* Improved text readability with stronger shadows */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); /* Much lighter shadow for light mode */
+  ::selection {
+    background: #c9a66e55;
   }
-
-  .dark h1,
-  .dark h2,
-  .dark h3,
-  .dark h4,
-  .dark h5,
-  .dark h6 {
-    text-shadow: 0 0 15px rgba(0, 0, 0, 0.7), 0 0 5px rgba(0, 0, 0, 0.4); /* Keep dark mode as is */
-  }
-
-  p,
-  span,
   a,
-  li,
-  label {
-    text-shadow: none; /* Remove shadows completely for body text in light mode */
+  button {
+    transition:
+      color 0.2s,
+      background-color 0.2s,
+      opacity 0.2s;
   }
-
-  .dark p,
-  .dark span,
-  .dark a,
-  .dark li,
-  .dark label {
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.6), 0 0 3px rgba(0, 0, 0, 0.3); /* Keep dark mode as is */
+  button {
+    cursor: pointer;
   }
-
-  /* Text container with slightly stronger background for better readability */
-  .text-container {
-    position: relative;
+  a:hover {
+    color: hsl(var(--accent));
   }
-
-  .text-container::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: rgba(255, 255, 255, 0.5); /* More opaque background in light mode */
-    backdrop-filter: blur(4px);
-    border-radius: 0.5rem;
-    z-index: -1;
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 5px;
   }
-
-  .dark .text-container::before {
-    background-color: rgba(0, 0, 0, 0.4); /* Keep dark mode as is */
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
   }
 }
-
-/* Mobile menu styles */
-.mobile-menu {
-  background-color: hsl(var(--background));
+.portfolio-width {
+  width: min(1160px, calc(100% - 64px));
+  margin-inline: auto;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  height: 78px;
+  z-index: 30;
+  border-bottom: 1px solid hsl(var(--border));
+  background: hsl(var(--background) / 0.92);
+  backdrop-filter: blur(10px);
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  height: 100%;
+}
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.wordmark img {
+  width: 27px;
+  height: 27px;
+  object-fit: contain;
+}
+.accent-dot {
+  color: hsl(var(--accent));
+}
+.desktop-nav {
+  display: flex;
+  gap: 30px;
+  font-size: 13px;
+  margin-left: auto;
+  color: hsl(var(--muted-foreground));
+}
+.desktop-nav .active {
+  color: hsl(var(--foreground));
+}
+.desktop-nav a {
+  padding-block: 12px;
+}
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mobile-menu-trigger {
+  display: none;
+}
+.mobile-nav-panel nav {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 36px;
+  font-size: 20px;
+}
+.skip-content {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  padding: 12px;
+  background: hsl(var(--background));
+  z-index: 100;
+  transform: translateY(-160%);
+}
+.skip-content:focus {
+  transform: none;
+}
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 0;
+  border-top: 1px solid hsl(var(--border));
+  font-size: 12px;
+  color: hsl(var(--muted-foreground));
+}
+.site-footer nav {
+  display: flex;
+  gap: 23px;
+}
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.ember-cursor {
   position: fixed;
   inset: 0;
-  z-index: 50;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  /* Sits over the raw scene but under every page's content — a glow in the
+     gaps, not a wash over the cards. */
+  z-index: 1;
+}
+/* Full-screen landing: direct navigation over the textured ruins, no entrance gate. */
+body:has(.ruins-landing) .site-footer,
+body:has(.ruins-landing) .ember-cursor {
+  display: none;
+}
+.landing-header {
+  position: absolute;
+  inset: 0 0 auto;
+  background: transparent;
+  border: 0;
+  backdrop-filter: none;
+  color: #efeee6;
+  height: 92px;
+}
+.landing-header .portfolio-width {
+  width: calc(100% - 112px);
+  max-width: none;
+}
+.landing-header .desktop-nav {
+  color: #c2c9c9;
+  gap: 32px;
+}
+.landing-header .desktop-nav .active,
+.landing-header a:hover {
+  color: #fff;
+}
+.landing-header .accent-dot {
+  color: #cfb58b;
+}
+.landing-header .wordmark img {
+  display: none;
+}
+.landing-header .wordmark {
+  font-size: 16px;
+  font-weight: 500;
+}
+.landing-header .nav-controls {
+  color: #efeee6;
 }
 
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out forwards;
+/* The campfire scene: a permanent, full-bleed backdrop behind every route. */
+.scene-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #080e16;
+}
+.ruins-still {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 70% 70%,
+    #45402b,
+    #111c22 45%,
+    #070d15 85%
+  );
+  background-image:
+    linear-gradient(#07101b18, #07101b18),
+    url('/personal-website/scene/ruins-poster.webp');
+  background-size: cover;
+  background-position: center;
+}
+.ruins-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  touch-action: none;
+  cursor: grab;
+  outline: none;
+}
+.ruins-canvas.is-ready {
+  opacity: 1;
+}
+.ruins-canvas:active {
+  cursor: grabbing;
+}
+.scene-controls {
+  position: absolute;
+  z-index: 3;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: #d3d8d1;
+}
+.scene-controls button {
+  height: 34px;
+  width: 34px;
+  display: grid;
+  place-items: center;
+  background: #0c162052;
+  border: 1px solid #acb5b629;
+  border-radius: 50%;
+}
+.scene-controls button:hover {
+  background: #47534977;
+}
+.scene-status {
+  font-size: 10px;
+  letter-spacing: 0.035em;
+  margin-right: 10px;
+  color: #c2c9c7;
 }
 
-.minimal-background {
-  background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 0);
-  background-size: 40px 40px;
+/* Home hero: text floats directly over the scene, like a cinematic intro. */
+.ruins-landing {
+  position: relative;
+  z-index: 2;
+  min-height: 740px;
+  height: 100svh;
+  color: #f0efe9;
+  /* Transparent except for its own text/links — clicks elsewhere reach the
+     scene controls living behind it in the global scene layer. */
+  pointer-events: none;
+}
+.landing-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      90deg,
+      #060d16cc 0%,
+      #060d1699 20%,
+      #060d1633 47%,
+      transparent 70%
+    ),
+    linear-gradient(
+      180deg,
+      #060d1659,
+      transparent 20%,
+      transparent 65%,
+      #060d1680
+    );
+}
+.landing-copy {
+  position: absolute;
+  z-index: 2;
+  left: clamp(32px, 6.2vw, 100px);
+  bottom: 18%;
+  max-width: 460px;
+  pointer-events: none;
+}
+.landing-copy a {
+  pointer-events: auto;
+}
+.landing-role {
+  font-size: 10px;
+  letter-spacing: 0.19em;
+  color: #c0c9c9;
+  line-height: 1.6;
+  margin: 0 0 21px;
+}
+.landing-copy h1 {
+  font-size: clamp(54px, 5.8vw, 84px);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 1.05;
+  margin: 0 0 24px;
+}
+.landing-copy h1 > span {
+  color: #d1b98d;
+}
+.landing-description {
+  font-size: 14px;
+  line-height: 1.95;
+  color: #c5cccc;
+  margin: 0;
+  letter-spacing: 0.005em;
+}
+.landing-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 34px;
+  font-size: 12px;
+}
+.landing-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 14px 20px;
+  border: 1px solid #d2ba8f;
+  background: #d2ba8f;
+  color: #151b1c;
+}
+.landing-primary:hover {
+  background: #ecd4a8;
+  color: #151b1c;
+}
+.landing-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #e7e8e4;
+}
+.landing-secondary:hover {
+  color: #edd8b1;
+}
+.landing-socials {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  margin-top: 34px;
+  color: #c1c8c6;
+}
+.landing-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+}
+.landing-socials a:hover {
+  color: #ecd4a8;
+}
+.landing-socials a:last-child {
+  margin-left: 3px;
+  border-left: 1px solid #aeb8b640;
+  padding-left: 25px;
+}
+.landing-bottom {
+  position: absolute;
+  z-index: 2;
+  bottom: 29px;
+  left: 56px;
+  right: 56px;
+  font-size: 10px;
+  line-height: 1.6;
+  color: #b5bfc1;
+}
+.ruins-landing :focus-visible,
+.landing-header :focus-visible {
+  outline-color: #e1c796;
+}
+/* Lift the scene credits toggle clear of the home hero's "seeking..." line. */
+body:has(.ruins-landing) .scene-credits {
+  bottom: 54px;
 }
 
-.dark .minimal-background {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+/* Inner pages: content floats over the same scene in a legible frosted sheet. */
+.content-page {
+  position: relative;
+  z-index: 2;
+  /* Transparent except for the frosted panel itself — clicks in the margins
+     reach the scene controls living behind it in the global scene layer. */
+  pointer-events: none;
+}
+.content-page > .container {
+  padding-top: 56px;
+  padding-bottom: 64px;
+  max-width: 1100px;
+  pointer-events: none;
+}
+.content-page > .container > * {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  background: hsl(var(--background) / 0.82);
+  backdrop-filter: blur(22px) saturate(1.15);
+  -webkit-backdrop-filter: blur(22px) saturate(1.15);
+  border-radius: 22px;
+  padding: 36px clamp(20px, 4vw, 56px) 48px;
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.45);
+}
+.page-title h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+.page-title p {
+  margin-top: 14px;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.portfolio-card {
+  box-shadow: none;
+}
+.portfolio-card p,
+.portfolio-card li {
+  line-height: 1.75;
+}
+.portfolio-card li {
+  font-size: 13px;
+}
+.portfolio-card [class*='tracking-tight'] {
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+}
+.portfolio-card img {
+  filter: saturate(0.85);
+}
+.portfolio-card .text-muted-foreground {
+  font-size: 13px;
+}
+.coursework {
+  font-size: 12px;
+  border: 1px solid hsl(var(--border));
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+.coursework summary {
+  cursor: pointer;
+}
+.coursework-content {
+  padding: 12px 0 4px;
+  max-width: 300px;
+}
+.coursework-content li {
+  font-size: 12px;
 }
 
-.gradient-text {
-  background: linear-gradient(to right, #000, #333, #000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% 200%;
-  animation: gradient-shift 15s ease infinite;
-  text-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-}
-
-.dark .gradient-text {
-  background: linear-gradient(to right, #fff, #ddd, #fff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
-}
-
-/* Override the generic dark-mode h1 shadow (which was muddying the clipped
-   gradient fill) with a lighter glow so the name reads crisp white. */
-.dark h1.gradient-text,
-.dark h1 .gradient-text {
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-}
-
-@keyframes blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
+@keyframes content-fade-in {
+  from {
     opacity: 0;
   }
+  to {
+    opacity: 1;
+  }
 }
-
-.animate-blink {
-  animation: blink 1s step-end infinite;
+#main-content > * {
+  animation: content-fade-in 0.55s cubic-bezier(0.2, 0.7, 0.3, 1) both;
 }
 
 @keyframes fade-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(7px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
   }
 }
-
-@keyframes gradient-shift {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
+.animate-fade-in {
+  animation: fade-in 0.45s both;
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
   50% {
-    background-position: 100% 50%;
+    opacity: 0;
+  }
+}
+@media (min-width: 1700px) {
+  .landing-copy {
+    left: 7vw;
+    bottom: 21%;
+  }
+  .landing-copy h1 {
+    font-size: 94px;
+  }
+  .landing-description {
+    font-size: 15px;
+  }
+}
+@media (max-width: 900px) {
+  .desktop-nav {
+    gap: 20px;
+  }
+  .landing-copy {
+    left: 40px;
+    max-width: 380px;
+  }
+  .landing-header .portfolio-width {
+    width: calc(100% - 72px);
+  }
+  .landing-header .desktop-nav {
+    gap: 21px;
+  }
+  .landing-copy h1 {
+    font-size: 65px;
+  }
+  .landing-bottom {
+    left: 36px;
+    right: 36px;
+  }
+  .scene-controls {
+    right: 36px;
+  }
+}
+@media (max-width: 700px) {
+  .portfolio-width {
+    width: calc(100% - 40px);
+  }
+  .site-header {
+    height: 72px;
+  }
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-menu-trigger {
+    display: inline-flex;
+  }
+  .landing-header .portfolio-width {
+    width: calc(100% - 44px);
+  }
+  .ruins-landing {
+    height: 100svh;
+    min-height: 650px;
+  }
+  .landing-shade {
+    background: linear-gradient(
+      180deg,
+      #060d1644,
+      transparent 23%,
+      transparent 35%,
+      #07111bab 65%,
+      #070e17eb 100%
+    );
+  }
+  .landing-copy {
+    left: 26px;
+    right: 26px;
+    bottom: 15%;
+    max-width: none;
+  }
+  .landing-role {
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    margin-bottom: 12px;
+  }
+  .landing-copy h1 {
+    font-size: 52px;
+    margin-bottom: 14px;
+  }
+  .landing-description {
+    font-size: 12px;
+    line-height: 1.85;
+  }
+  .landing-links {
+    gap: 23px;
+    margin-top: 23px;
+    font-size: 11px;
+  }
+  .landing-primary {
+    padding: 13px 17px;
+    gap: 22px;
+  }
+  .landing-socials {
+    margin-top: 24px;
+    gap: 21px;
+  }
+  .landing-bottom {
+    bottom: 16px;
+    left: 26px;
+    right: 26px;
+    font-size: 8px;
+  }
+  .scene-controls {
+    right: 23px;
+    bottom: auto;
+    top: 86px;
+    gap: 7px;
+  }
+  .scene-status {
+    font-size: 9px;
+    margin-right: 4px;
+  }
+  .scene-controls button {
+    width: 31px;
+    height: 31px;
+  }
+  .scene-credits {
+    left: 23px;
+    bottom: auto;
+    top: 86px;
+  }
+  .site-footer {
+    flex-direction: column;
+    gap: 18px;
+    font-size: 11px;
+  }
+  .content-page > .container {
+    padding: 32px 20px 50px;
+  }
+  .content-page > .container > * {
+    padding: 24px 20px 32px;
+    border-radius: 16px;
+  }
+  .page-title {
+    padding-inline: 0;
+  }
+  .page-title p {
+    font-size: 13px;
+  }
+  .portfolio-card .text-xl {
+    font-size: 18px;
+  }
+  .portfolio-card li {
+    font-size: 12px;
+  }
+  .portfolio-card .sm\:flex-row {
+    gap: 7px;
+  }
+  .ruins-still {
+    background-image: url('/personal-website/scene/ruins-poster-mobile.webp');
+    background-position: center;
+  }
+}
+@media (max-height: 650px) and (min-width: 701px) {
+  .ruins-landing {
+    min-height: 100svh;
+  }
+  .landing-copy {
+    bottom: 20%;
+  }
+  .landing-copy h1 {
+    font-size: 56px;
+  }
+  .landing-role {
+    margin-bottom: 12px;
+  }
+  .landing-description {
+    font-size: 12px;
+  }
+  .landing-links {
+    margin-top: 21px;
+  }
+  .landing-socials {
+    margin-top: 23px;
+  }
+}
+@media (max-height: 500px) and (orientation: landscape) {
+  .ruins-landing {
+    min-height: 100svh;
+  }
+  .site-header {
+    height: 60px;
+  }
+  .landing-copy {
+    bottom: 60px;
+  }
+  .landing-copy h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
+  .landing-role {
+    margin-bottom: 8px;
+    font-size: 8px;
+  }
+  .landing-description {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  .landing-links {
+    margin-top: 16px;
+  }
+  .landing-primary {
+    padding: 10px 16px;
+  }
+  .landing-socials {
+    display: none;
+  }
+  .scene-controls {
+    top: 75px;
+    bottom: auto;
+  }
+  .landing-bottom {
+    bottom: 20px;
+  }
+  .content-page > .container {
+    padding-top: 68px;
+    padding-bottom: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .ember-cursor {
+    display: none;
   }
 }
 
+/* Intro loader: a short beat over the night scene while assets stream in. */
+.site-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  background: radial-gradient(ellipse at 50% 58%, #1d160c, #070c13 72%);
+  color: #efeee6;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.7s ease,
+    visibility 0s linear 0.7s;
+  animation: loader-timeout 0.7s ease 5s forwards;
+}
+html[data-scene] .site-loader {
+  opacity: 0;
+  visibility: hidden;
+}
+@keyframes loader-timeout {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+.site-loader img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+.site-loader p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+.site-loader p span {
+  color: #d1b98d;
+}
+.site-loader small {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #b5bfc1;
+}
+.site-loader-bar {
+  width: 120px;
+  height: 2px;
+  overflow: hidden;
+  background: #ffffff1f;
+  border-radius: 2px;
+}
+.site-loader-bar i {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: #d2ba8f;
+  animation: loader-slide 1.2s ease-in-out infinite;
+}
+@keyframes loader-slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(260%);
+  }
+}
+
+/* Scene status/credits sit over a sky that may now be bright — keep them legible. */
+.scene-status,
+.scene-credits summary {
+  background: #0a121c8c;
+  padding: 5px 11px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.scene-status {
+  margin-right: 6px;
+}
+
+/* Light mode home: the hero reads as dark type over a warm cream shade on the golden-hour scene. */
+:root:not(.dark) .ruins-landing {
+  color: #2a1f14;
+}
+:root:not(.dark) .landing-shade {
+  /* A vertical band of cream down the left edge (behind the copy, up to the top-left corner),
+     fading out to the right — the rest of the scene stays vivid. */
+  background: linear-gradient(
+    90deg,
+    #efdcbdd6 0%,
+    #efdcbdb8 15%,
+    #efdcbd8c 26%,
+    #efdcbd40 36%,
+    transparent 48%
+  );
+}
+:root:not(.dark) .landing-role,
+:root:not(.dark) .landing-bottom {
+  color: #5c4a38;
+}
+:root:not(.dark) .landing-copy h1 {
+  color: #2a1f14;
+}
+:root:not(.dark) .landing-copy h1 > span {
+  color: #a0661f;
+}
+:root:not(.dark) .landing-description,
+:root:not(.dark) .landing-socials {
+  color: #46372a;
+}
+:root:not(.dark) .landing-primary {
+  background: #6b4519;
+  border-color: #6b4519;
+  color: #fbf1e2;
+}
+:root:not(.dark) .landing-primary:hover {
+  background: #84571f;
+  color: #fbf1e2;
+}
+:root:not(.dark) .landing-secondary {
+  color: #2a1f14;
+}
+:root:not(.dark) .landing-secondary:hover,
+:root:not(.dark) .landing-socials a:hover {
+  color: #a0661f;
+}
+:root:not(.dark) .landing-socials a:last-child {
+  border-left-color: #2a1f1440;
+}
+:root:not(.dark) .landing-header,
+:root:not(.dark) .landing-header .nav-controls {
+  color: #2a1f14;
+}
+:root:not(.dark) .landing-header .desktop-nav {
+  color: #5c4a38;
+}
+:root:not(.dark) .landing-header .desktop-nav .active,
+:root:not(.dark) .landing-header a:hover {
+  color: #1a120a;
+}
+:root:not(.dark) .landing-header .accent-dot {
+  color: #a0661f;
+}
+:root:not(.dark) .ruins-landing :focus-visible,
+:root:not(.dark) .landing-header :focus-visible {
+  outline-color: #6b4519;
+}
+@media (max-width: 700px) {
+  :root:not(.dark) .landing-shade {
+    background: linear-gradient(
+      180deg,
+      transparent 42%,
+      #efdcbd73 66%,
+      #efdcbdb8 100%
+    );
+  }
+}
+
+/* Capybara poke caption: above the page content so it's never hidden behind a panel. */
+.scene-toast {
+  position: fixed;
+  z-index: 45;
+  left: 50%;
+  bottom: 84px;
+  transform: translateX(-50%);
+  max-width: calc(100vw - 40px);
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: #0a121cd9;
+  border: 1px solid #d2ba8f55;
+  color: #f0e6d2;
+  font-size: 13px;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  animation: toast-in 0.3s ease both;
+}
+@keyframes toast-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* The clean transparent bar is the site header on every route. */
+.landing-header.is-sticky {
+  position: sticky;
+}
+.landing-header.is-scrolled {
+  background: hsl(var(--background) / 0.74);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid hsl(var(--border) / 0.5);
+}
+/* Before scrolling, a faint fade behind the links keeps them readable over whatever the camera frames. */
+.landing-header.is-sticky:not(.is-scrolled) {
+  background: linear-gradient(180deg, hsl(var(--background) / 0.62), transparent);
+}
+/* The scene hint is a home-page nicety; on inner pages it would sit half behind the content panel. */
+html[data-scene='ready'] body:not(:has(.ruins-landing)) .scene-status {
+  display: none;
+}
+
+/* Scene credits: a small pill that opens an opaque popover above all page content. */
+.scene-credits {
+  position: fixed;
+  z-index: 45;
+  left: 24px;
+  bottom: 24px;
+  font-size: 10px;
+  color: #b5bfc1;
+}
+.scene-credits summary {
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+}
+.scene-credits summary::-webkit-details-marker {
+  display: none;
+}
+.scene-credits summary:after {
+  content: ' +';
+  margin-left: 5px;
+}
+.scene-credits[open] summary:after {
+  content: ' −';
+}
+.scene-credits > div {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  width: 330px;
+  max-width: calc(100vw - 48px);
+  padding: 18px 20px 16px;
+  border: 1px solid #d2ba8f40;
+  border-radius: 14px;
+  background: #0d1720;
+  box-shadow: 0 18px 50px -12px #000000b3;
+  color: #d5dbd6;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.scene-credits ul {
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 11px;
+}
+.scene-credits li {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  column-gap: 12px;
+  align-items: baseline;
+}
+.scene-credits li span {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #a08c68;
+}
+.scene-credits li .license {
+  grid-column: 2;
+  font-size: 11px;
+  color: #98a3a0;
+  text-decoration: none;
+}
+.scene-credits p {
+  margin: 0;
+  padding-top: 13px;
+  border-top: 1px solid #ffffff17;
+  font-size: 11px;
+  color: #98a3a0;
+}
+.scene-credits a {
+  color: #e9d8b6;
+  text-decoration: underline;
+  text-decoration-color: #e9d8b655;
+  text-underline-offset: 3px;
+}
+.scene-credits a:hover,
+.scene-credits li .license:hover {
+  color: #ffe9c2;
+}
+@media (max-width: 700px) {
+  .scene-credits,
+  body:has(.ruins-landing) .scene-credits {
+    left: 23px;
+    bottom: auto;
+    top: 86px;
+  }
+  .scene-credits > div {
+    bottom: auto;
+    top: calc(100% + 10px);
+  }
+}
+/* On phones the credits pill and the scene hint share a row; the hint is a desktop nicety. */
+@media (max-width: 700px) {
+  html[data-scene='ready'] .scene-status {
+    display: none;
+  }
+}

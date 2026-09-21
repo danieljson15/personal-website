@@ -13,7 +13,7 @@ export function GlowingOrbBackground() {
   const { resolvedTheme } = useTheme()
   const [mousePosition, setMousePosition] = useState<MousePosition>({ x: 0, y: 0 })
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
-  const animationFrameRef = useRef<number>()
+  const animationFrameRef = useRef<number | undefined>(undefined)
   const timeRef = useRef<number>(0)
 
   // Track actual mouse position and target position for smooth movement

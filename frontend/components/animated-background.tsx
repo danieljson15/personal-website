@@ -25,7 +25,7 @@ export function AnimatedBackground() {
 
     // Create a more visible flowing effect
     function draw() {
-      if (!ctx) return
+      if (!ctx || !canvas) return
 
       const time = Date.now() * 0.0005
       const width = canvas.width
