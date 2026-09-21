@@ -1,0 +1,3 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[4869],{94869:(e,r,o)=>{o.r(r),o.d(r,{lod3DPixelShader:()=>i});var a=o(35614);let l="lod3DPixelShader",t=`precision highp float;precision highp sampler3D;const float GammaEncodePowerApprox=1.0/2.2;varying vec2 vUV;uniform sampler3D textureSampler;uniform float lod;uniform float slice;uniform int gamma;void main(void)
+{ivec3 textureCoordinates=ivec3(vUV*vec2(textureSize(textureSampler,0).xy),int(slice));gl_FragColor=texelFetch(textureSampler,textureCoordinates,int(lod));if (gamma==0) {gl_FragColor.rgb=pow(gl_FragColor.rgb,vec3(GammaEncodePowerApprox));}}
+`;a.l.ShadersStore[l]||(a.l.ShadersStore[l]=t);let i={name:l,shader:t}}}]);

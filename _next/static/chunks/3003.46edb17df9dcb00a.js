@@ -1,0 +1,3 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[3003],{83003:(e,t,r)=>{r.r(t),r.d(t,{lodPixelShaderWGSL:()=>m});var a=r(35614);let u="lodPixelShader",o=`const GammaEncodePowerApprox=1.0/2.2;varying vUV: vec2f;var textureSampler: texture_2d<f32>;uniform lod: f32;uniform gamma: i32;@fragment
+fn main(input: FragmentInputs)->FragmentOutputs {let textureSize=textureDimensions(textureSampler);fragmentOutputs.color=textureLoad(textureSampler,vec2u(fragmentInputs.vUV*vec2f(textureSize)),u32(uniforms.lod));if (uniforms.gamma==0) {fragmentOutputs.color=vec4f(pow(fragmentOutputs.color.rgb,vec3f(GammaEncodePowerApprox)),fragmentOutputs.color.a);}}
+`;a.l.ShadersStoreWGSL[u]||(a.l.ShadersStoreWGSL[u]=o);let m={name:u,shader:o}}}]);
