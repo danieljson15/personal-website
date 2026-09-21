@@ -11,11 +11,17 @@ import { SiteLoader } from '@/components/campfire/site-loader'
 const inter = Inter({ subsets: ['latin'], display: 'swap' })
 export const metadata: Metadata = {
   title: {
-    default: 'Daniel Son | Personal Portfolio',
+    default: 'Daniel Son | Software Engineer, Applied AI',
     template: '%s | Daniel Son',
   },
   description:
-    'Software engineer and ML researcher at the University of Virginia. Projects, research, and experience.',
+    'Software engineer building AI systems over real enterprise data, with published research on LLM evaluation. CS & Data Science at UVA.',
+  openGraph: {
+    title: 'Daniel Son | Software Engineer, Applied AI',
+    description:
+      'Software engineer building AI systems over real enterprise data, with published research on LLM evaluation. CS & Data Science at UVA.',
+    type: 'website',
+  },
   icons: { icon: '/personal-website/capybara-logo.png' },
 }
 export default function RootLayout({ children }: { children: ReactNode }) {

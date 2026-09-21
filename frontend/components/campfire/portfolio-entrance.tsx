@@ -9,14 +9,15 @@ export function PortfolioEntrance() {
     <section className="ruins-landing" aria-labelledby="landing-heading">
       <div className="landing-shade" aria-hidden="true" />
       <div className="landing-copy">
-        <p className="landing-role">SOFTWARE ENGINEER & ML RESEARCHER</p>
+        <p className="landing-role">SOFTWARE ENGINEER · APPLIED AI</p>
         <h1 id="landing-heading">
           Daniel Son<span>.</span>
         </h1>
         <p className="landing-description">
-          Building software. Exploring intelligence.
+          AI and analytics systems over real company data, plus research on
+          where LLMs&nbsp;break.
           <br />
-          Data Science & Computer Science at UVA.
+          Computer Science & Data Science at UVA. Published at ACL SRW and LREC.
         </p>
         <div className="landing-links">
           <Link href="/projects" className="landing-primary">

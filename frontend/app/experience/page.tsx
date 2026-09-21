@@ -96,7 +96,7 @@ const skills: { group: string; items: string[] }[] = [
     ],
   },
   {
-    group: 'Databases & Analytics',
+    group: 'Databases & Data Platforms',
     items: [
       'PostgreSQL',
       'Supabase',
@@ -161,8 +161,8 @@ export default function ResumePage() {
                   </div>
                   <p className="text-muted-foreground">Charlottesville, VA</p>
                   <p className="mt-2 text-sm">
-                    B.A. Computer Science, B.S. Data Science • GPA: 4.0 •
-                    Dean&apos;s List
+                    Computer Science &amp; Data Science (B.A. / B.S.) • GPA: 4.0
+                    • Dean&apos;s List
                   </p>
                   <p className="mt-3 text-xs font-medium text-muted-foreground">
                     Relevant Coursework{' '}
@@ -231,10 +231,10 @@ export default function ResumePage() {
                   org="Care Hospice, Charlottesville, VA"
                   dates="Apr. 2026 – Aug. 2026"
                   bullets={[
-                    "Built and deployed two Snowflake Cortex AI agents (census/operations and sales/referral) on semantic views spanning 20 tables, giving executives a natural-language alternative to static Tableau dashboards",
-                    "Validated agent answers against existing Tableau dashboards and added row-level security to restrict patient-level data",
-                    "Built dbt and Jinja/SQL deployment tooling for repeatable releases across dev, test, and prod; colleagues reused it to ship more agents, including compliance and CAHPS survey agents",
-                    "Built a Power Automate accounts payable pipeline for an inbox of 300–500 documents a day, using Azure Document Intelligence and duplicate detection, integrated with NetSuite; saves about 5 hours of manual work weekly",
+                    "Built two Snowflake Cortex AI agents over semantic views spanning 20 tables, giving executives a natural-language alternative to static Tableau dashboards",
+                    "Validated the agents with verified-query tests against existing dashboards, and applied row-level security restricting patient-level data",
+                    "Built deployment tooling (dbt, Jinja/SQL, version-controlled YAML) that colleagues reused to ship compliance and CAHPS survey agents",
+                    "Built a document pipeline for an inbox of 300–500 documents a day, with confidence-based routing of low-confidence results to human review",
                   ]}
                   tags={[
                     'Snowflake Cortex',
@@ -246,13 +246,14 @@ export default function ResumePage() {
                 />
                 <Role
                   title="Software Engineer Intern"
-                  org="SkyBitz | AMETEK, Herndon, VA"
+                  org="SkyBitz (Telular — AMETEK), Herndon, VA"
                   dates="May 2025 – Aug. 2025"
                   bullets={[
-                    "Designed a semantic layer and join map across 20+ asset, sensor, GPS, and trip tables to ground LLM text-to-SQL over fleet and IoT data",
-                    "Configured Amazon QuickSight natural-language querying with IAM access controls, reaching 90%+ accuracy on real questions from executives, Q&A, and customer support",
-                    "Prototyped OCR and retrieval-augmented generation for contract question answering with Amazon Q Business and S3",
-                    "Documented failure modes such as invalid columns, ambiguous joins, and slow queries; leadership hired AWS contractors to scale both prototypes",
+                    "Designed a semantic layer and join map across 20+ tables to ground LLM text-to-SQL",
+                    "Configured Amazon QuickSight natural-language querying with IAM controls, reaching 90%+ accuracy on a validation set of real questions",
+                    "Prototyped OCR + RAG contract QA with Amazon Q Business and S3",
+                    "Documented failure modes such as invalid columns, ambiguous joins, and slow queries",
+                    "Presented the prototypes to leadership, who funded AWS contractors to scale them",
                   ]}
                   tags={['AWS', 'QuickSight', 'Amazon Q Business', 'SQL']}
                 />
@@ -287,20 +288,19 @@ export default function ResumePage() {
                   org="University of Virginia, advised by Aidan San"
                   dates="Feb. 2025 – Present"
                   bullets={[
-                    "Built a framework that inserts irrelevant comparative statements into math word problems, using spaCy for entity extraction and RoBERTa and Gemma-2 to generate comparators",
-                    "Filtered GSM8K, AQuA, and Hendrycks MATH down to 5,769 concrete word problems using LLM-based classification",
-                    "Evaluated 14 open-source LLMs on UVA's SLURM cluster, finding 20–23% average relative accuracy drops, with larger drops for less diverse statements",
+                    "Built a framework inserting irrelevant comparative statements into 5,769 math word problems",
+                    "Evaluated 14 open-source LLMs and measured 20–23% average relative accuracy drops",
                     "Now analyzing layer-level representation shifts across Gemma, Llama, Pythia, and Qwen in a separate project",
                   ]}
                   tags={['spaCy', 'Gemma-2', 'lm-evaluation-harness', 'SLURM']}
                 />
                 <Role
                   title="Machine Learning Researcher"
-                  org="Algoverse Research, Remote"
+                  org="Algoverse AI, Remote"
                   dates="Nov. 2024 – Jul. 2025"
                   bullets={[
-                    "Built a sparse autoencoder (SAE) pipeline comparing residual-stream representations in Gemma-2 2B and 9B",
-                    "Aligned features by activation correlation and compared layers with SVCCA and RSA, finding the strongest alignment in the middle layers and far less in early and late ones",
+                    "Built a sparse autoencoder pipeline comparing Gemma-2 2B and 9B representations with SVCCA and RSA; the strongest alignment was in the middle layers",
+                    "Ran working meetings and distributed tasks in the project's later stages",
                     "First-authored the paper and presented it as a poster at ACL SRW 2025 in Vienna",
                   ]}
                   tags={['PyTorch', 'Sparse autoencoders', 'SVCCA', 'RSA']}
@@ -325,13 +325,14 @@ export default function ResumePage() {
                     </span>
                   </div>
                   <p className="text-muted-foreground">
-                    LREC 2026 Main Conference • Second Author • Palma, Spain
+                    University of Virginia • LREC 2026 Main Conference • Poster
+                    • Second Author • Palma, Spain
                   </p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
                     <li>
-                      Investigated LLM consistency to comparative statements in
-                      mathematical reasoning through adversarial prompt
-                      injection
+                      Inserted irrelevant comparative statements into 5,769 math
+                      word problems and evaluated 14 open-source LLMs, measuring
+                      20–23% average relative accuracy drops
                     </li>
                     <li>
                       Applied RSA and SVCCA to localize where the insertions
@@ -376,8 +377,8 @@ export default function ResumePage() {
                     </span>
                   </div>
                   <p className="text-muted-foreground">
-                    ACL Student Research Workshop • First Author • Vienna,
-                    Austria
+                    Algoverse AI • ACL Student Research Workshop 2025 • Poster •
+                    First Author • Vienna, Austria
                   </p>
                   <ul className="mt-2 list-inside list-disc text-sm space-y-1">
                     <li>
@@ -439,7 +440,7 @@ export default function ResumePage() {
                   org="Undergraduate Data Science Council, University of Virginia"
                   dates="Sept. 2025 – Present"
                   bullets={[
-                    "Organized professional-development programming, including fireside chats with Appian and resume workshops",
+                    "Organized professional-development programming, including fireside chats and resume workshops",
                     "Created resume templates and coordinated with Career Services and student groups on outreach and registration",
                   ]}
                 />
