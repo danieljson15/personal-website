@@ -7,14 +7,17 @@ try {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Keep a live development server from overwriting the production build cache.
+  distDir: process.env.NODE_ENV === 'development' ? '.next-dev' : '.next',
   output: 'export',
+  trailingSlash: true,
   basePath: '/personal-website',
   assetPrefix: '/personal-website',
   eslint: {
     ignoreDuringBuilds: true,
   },
   typescript: {
-    ignoreBuildErrors: true,
+    ignoreBuildErrors: false,
   },
   images: {
     unoptimized: true,
